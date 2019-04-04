@@ -15,12 +15,13 @@ namespace TraineWinForm
         private bool connection;
         private bool controleCreationListRecherche;
         private int boutonChoisi;
-
+        private bool etatModificationStock;
         //constructeur
         public Metier()
         { 
             connection = false;
             m_medicament = new List<Medicament>();
+            nouveauStock = new List<Medicament>();
             //patient pour plus tard m_patient = new List<Patient>();
         }
 
@@ -64,6 +65,10 @@ namespace TraineWinForm
         {
             return boutonChoisi;
         }
+        public bool get_etatModificationStock()
+        {
+            return etatModificationStock;
+        }
         //liste des set
         public void set_indiceMedicamentChoisi(int p_indiceMedicamentChoisi)
         {
@@ -72,6 +77,14 @@ namespace TraineWinForm
         public void set_bontonChoisi(int p_bontonChoisi)
         {
             boutonChoisi = p_bontonChoisi;
+        }
+        public void set_m_medicamentRecherche()
+        {
+            m_medicamentRecherche = m_medicament;
+        }
+        public void set_etatModificationStock(bool p_etatModificationStock)
+        {
+            etatModificationStock = p_etatModificationStock;
         }
         //methode
         public bool identification(string p_identifiant, string p_motDePasse)
@@ -212,9 +225,21 @@ namespace TraineWinForm
             Medicament compareMedic = new Medicament(p_code,p_nom,p_type,p_principeActif,p);
             if
         }*/
-        public void modificationEntierStock()
+        public void modificationEntierStock(string p_code, string p_nom, string p_type, string p_typeMesure, string p_principeActif, int p_stock, int p_seuilCritique, string p_localisation, int p_i)
         {
-            
+            if(etatModificationStock)
+            {
+                m_medicament.Add(new Medicament(p_code, p_nom, p_type, p_typeMesure, p_principeActif, p_localisation, p_stock, p_seuilCritique));
+            }   
+            else
+            {
+                if(p_i==0)
+                {
+                    m_medicament.Clear();
+                }               
+                m_medicament.Add(new Medicament(p_code, p_nom, p_type, p_typeMesure, p_principeActif, p_localisation, p_stock, p_seuilCritique));
+            }
+        
         }
         //methode de test de médicament et patient
         public void DAO()

@@ -61,16 +61,23 @@
             this.localisation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.l_medicamentChoisi = new System.Windows.Forms.Label();
             this.p_retraitMedicament = new System.Windows.Forms.Panel();
+            this.p_modificationComplete = new System.Windows.Forms.Panel();
+            this.b_modificationComplete = new System.Windows.Forms.Button();
             this.p_panelDegestionStock = new System.Windows.Forms.Panel();
             this.b_gestionMedicament = new System.Windows.Forms.Button();
             this.nud_choixTailleRetraitMedicament = new System.Windows.Forms.NumericUpDown();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.p_acceuil = new System.Windows.Forms.Panel();
+            this.l_acceuil = new System.Windows.Forms.Label();
+            this.b_Deconnection = new System.Windows.Forms.Button();
+            this.cb_medicamentMasqué = new System.Windows.Forms.CheckBox();
             this.p_rechercheRetraitMedicament.SuspendLayout();
             this.p_connection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_medicamentRechercher)).BeginInit();
             this.p_retraitMedicament.SuspendLayout();
+            this.p_modificationComplete.SuspendLayout();
             this.p_panelDegestionStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_choixTailleRetraitMedicament)).BeginInit();
+            this.p_acceuil.SuspendLayout();
             this.SuspendLayout();
             // 
             // p_rechercheRetraitMedicament
@@ -288,7 +295,7 @@
             this.p_connection.Controls.Add(this.b_connection);
             this.p_connection.Controls.Add(this.tb_identifiant);
             this.p_connection.Controls.Add(this.tb_motDePasse);
-            this.p_connection.Location = new System.Drawing.Point(414, 229);
+            this.p_connection.Location = new System.Drawing.Point(414, 253);
             this.p_connection.Name = "p_connection";
             this.p_connection.Size = new System.Drawing.Size(217, 128);
             this.p_connection.TabIndex = 5;
@@ -378,20 +385,41 @@
             // p_retraitMedicament
             // 
             this.p_retraitMedicament.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.p_retraitMedicament.Controls.Add(this.p_modificationComplete);
             this.p_retraitMedicament.Controls.Add(this.p_panelDegestionStock);
             this.p_retraitMedicament.Controls.Add(this.dgv_medicamentRechercher);
             this.p_retraitMedicament.Location = new System.Drawing.Point(414, 12);
             this.p_retraitMedicament.Name = "p_retraitMedicament";
-            this.p_retraitMedicament.Size = new System.Drawing.Size(662, 210);
+            this.p_retraitMedicament.Size = new System.Drawing.Size(662, 230);
             this.p_retraitMedicament.TabIndex = 9;
             this.p_retraitMedicament.Visible = false;
+            // 
+            // p_modificationComplete
+            // 
+            this.p_modificationComplete.Controls.Add(this.cb_medicamentMasqué);
+            this.p_modificationComplete.Controls.Add(this.b_modificationComplete);
+            this.p_modificationComplete.Location = new System.Drawing.Point(8, 128);
+            this.p_modificationComplete.Name = "p_modificationComplete";
+            this.p_modificationComplete.Size = new System.Drawing.Size(209, 56);
+            this.p_modificationComplete.TabIndex = 11;
+            this.p_modificationComplete.Visible = false;
+            // 
+            // b_modificationComplete
+            // 
+            this.b_modificationComplete.Location = new System.Drawing.Point(9, 28);
+            this.b_modificationComplete.Name = "b_modificationComplete";
+            this.b_modificationComplete.Size = new System.Drawing.Size(132, 23);
+            this.b_modificationComplete.TabIndex = 0;
+            this.b_modificationComplete.Text = "Mise à jour du stock";
+            this.b_modificationComplete.UseVisualStyleBackColor = true;
+            this.b_modificationComplete.Click += new System.EventHandler(this.b_modificationComplete_Click);
             // 
             // p_panelDegestionStock
             // 
             this.p_panelDegestionStock.Controls.Add(this.l_medicamentChoisi);
             this.p_panelDegestionStock.Controls.Add(this.b_gestionMedicament);
             this.p_panelDegestionStock.Controls.Add(this.nud_choixTailleRetraitMedicament);
-            this.p_panelDegestionStock.Location = new System.Drawing.Point(11, 133);
+            this.p_panelDegestionStock.Location = new System.Drawing.Point(11, 161);
             this.p_panelDegestionStock.Name = "p_panelDegestionStock";
             this.p_panelDegestionStock.Size = new System.Drawing.Size(615, 50);
             this.p_panelDegestionStock.TabIndex = 11;
@@ -417,25 +445,57 @@
             this.nud_choixTailleRetraitMedicament.TabIndex = 9;
             this.nud_choixTailleRetraitMedicament.Visible = false;
             // 
-            // panel1
+            // p_acceuil
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel1.Location = new System.Drawing.Point(15, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(388, 22);
-            this.panel1.TabIndex = 10;
+            this.p_acceuil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.p_acceuil.Controls.Add(this.l_acceuil);
+            this.p_acceuil.Controls.Add(this.b_Deconnection);
+            this.p_acceuil.Location = new System.Drawing.Point(15, 12);
+            this.p_acceuil.Name = "p_acceuil";
+            this.p_acceuil.Size = new System.Drawing.Size(388, 22);
+            this.p_acceuil.TabIndex = 10;
+            this.p_acceuil.Visible = false;
+            // 
+            // l_acceuil
+            // 
+            this.l_acceuil.AutoSize = true;
+            this.l_acceuil.Location = new System.Drawing.Point(99, 4);
+            this.l_acceuil.Name = "l_acceuil";
+            this.l_acceuil.Size = new System.Drawing.Size(0, 13);
+            this.l_acceuil.TabIndex = 11;
+            // 
+            // b_Deconnection
+            // 
+            this.b_Deconnection.BackColor = System.Drawing.Color.Red;
+            this.b_Deconnection.Location = new System.Drawing.Point(3, -1);
+            this.b_Deconnection.Name = "b_Deconnection";
+            this.b_Deconnection.Size = new System.Drawing.Size(90, 23);
+            this.b_Deconnection.TabIndex = 12;
+            this.b_Deconnection.Text = "Déconnection";
+            this.b_Deconnection.UseVisualStyleBackColor = false;
+            // 
+            // cb_medicamentMasqué
+            // 
+            this.cb_medicamentMasqué.AutoSize = true;
+            this.cb_medicamentMasqué.Location = new System.Drawing.Point(9, 5);
+            this.cb_medicamentMasqué.Name = "cb_medicamentMasqué";
+            this.cb_medicamentMasqué.Size = new System.Drawing.Size(189, 17);
+            this.cb_medicamentMasqué.TabIndex = 1;
+            this.cb_medicamentMasqué.Text = "Masqué les médicaments existants";
+            this.cb_medicamentMasqué.UseVisualStyleBackColor = true;
+            this.cb_medicamentMasqué.CheckedChanged += new System.EventHandler(this.cb_medicamentMasqué_CheckedChanged);
             // 
             // IHM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1287, 593);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.p_acceuil);
             this.Controls.Add(this.p_retraitMedicament);
             this.Controls.Add(this.p_connection);
             this.Controls.Add(this.p_rechercheRetraitMedicament);
             this.Name = "IHM";
-            this.Text = " !";
+            this.Text = " Médistock";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.p_rechercheRetraitMedicament.ResumeLayout(false);
             this.p_rechercheRetraitMedicament.PerformLayout();
@@ -443,9 +503,13 @@
             this.p_connection.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_medicamentRechercher)).EndInit();
             this.p_retraitMedicament.ResumeLayout(false);
+            this.p_modificationComplete.ResumeLayout(false);
+            this.p_modificationComplete.PerformLayout();
             this.p_panelDegestionStock.ResumeLayout(false);
             this.p_panelDegestionStock.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_choixTailleRetraitMedicament)).EndInit();
+            this.p_acceuil.ResumeLayout(false);
+            this.p_acceuil.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -487,7 +551,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn seuilCritique;
         private System.Windows.Forms.DataGridViewTextBoxColumn localisation;
         private System.Windows.Forms.Panel p_panelDegestionStock;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel p_acceuil;
+        private System.Windows.Forms.Label l_acceuil;
+        private System.Windows.Forms.Button b_Deconnection;
+        private System.Windows.Forms.Panel p_modificationComplete;
+        private System.Windows.Forms.Button b_modificationComplete;
+        private System.Windows.Forms.CheckBox cb_medicamentMasqué;
         /* patient pour plus tard
 private System.Windows.Forms.TextBox tb_numeroDossierPatient;
 private System.Windows.Forms.TextBox tb_ChambrePatient;
