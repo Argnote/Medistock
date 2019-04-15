@@ -89,23 +89,13 @@ namespace TraineWinForm
         //methode
         public bool identification(string p_identifiant, string p_motDePasse)
         {
-            if (p_identifiant == "test" && p_motDePasse == "azerty")
+            string demande = '1' + p_identifiant + ';' + p_motDePasse;
+            Client client = new Client(demande);
+            string message = client.getMessage();
+            if(message != "faux" && message != null)
             {
-                string nom = "croix";
-                string prenom = "pierre";
-                string role = "medecin";
-                int permission = 2;
-                m_utilisateur = new Utilisateur(nom, prenom, role, permission, p_identifiant, p_motDePasse);
-                DAO();
-                connection = true;
-            }
-            else if(p_identifiant == "admin" && p_motDePasse == "azerty")
-            {
-                string nom = "Dubois";
-                string prenom = "Victor";
-                string role = "magasinier";
-                int permission = 5;
-                m_utilisateur = new Utilisateur(nom, prenom, role, permission, p_identifiant, p_motDePasse);
+                string[] split = message.Split(';');
+                m_utilisateur = new Utilisateur(split[0], split[1], split[2], Int32.Parse(split[3]), split[4], split[5]);
                 DAO();
                 connection = true;
             }
