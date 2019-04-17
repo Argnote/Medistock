@@ -32,8 +32,8 @@ namespace TraineWinForm
                             // flux de sortie non bufferisé
                             writer.AutoFlush = true;
                             writer.WriteLine(demande);
-                            reponse = reader.ReadLine();
 
+                            reponse = reader.ReadLine();
                             //Console.Write(reponse + "\n");
                             message = reponse;
                             // on traite la réponse

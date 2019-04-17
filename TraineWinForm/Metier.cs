@@ -94,9 +94,29 @@ namespace TraineWinForm
             string message = client.getMessage();
             if(message != "faux" && message != null)
             {
-                string[] split = message.Split(';');
-                m_utilisateur = new Utilisateur(split[0], split[1], split[2], Int32.Parse(split[3]), split[4], split[5]);
-                DAO();
+                string[] splitmessage = message.Split('*');
+                string[] splitUtilisateur = splitmessage[0].Split(';');
+                m_utilisateur = new Utilisateur(Int32.Parse(splitUtilisateur[0]), splitUtilisateur[1], splitUtilisateur[2], splitUtilisateur[3], Int32.Parse(splitUtilisateur[4]), splitUtilisateur[5], splitUtilisateur[6]);
+                for(int i = 1; i < splitmessage.Length; i++)
+                {
+                    string[] splitmedicament = splitmessage[i].Split(',');
+                    string localisation = splitmedicament[7] + splitmedicament[8] + " / " + splitmedicament[9];
+                    int stock = Int32.Parse(splitmedicament[5]);
+                    for (int j = 10; j < splitmedicament.Length; j ++)
+                    {
+                        string[] splitAction = splitmedicament[j].Split('ù');
+                        if(splitAction[0] == "retrait")
+                        {
+                            stock = stock - Int32.Parse(splitAction[1]);
+                        }
+                        else
+                        {
+                            stock = stock + Int32.Parse(splitAction[1]);
+                        }
+                    }
+                    m_medicament.Add(new Medicament(splitmedicament[0], splitmedicament[1], splitmedicament[2], splitmedicament[3], splitmedicament[4], localisation, stock, Int32.Parse(splitmedicament[6])));
+                }
+                //DAO();
                 connection = true;
             }
             return connection;
@@ -184,12 +204,18 @@ namespace TraineWinForm
         //mise a jour du stock d'un médicament suite à un retrait
         public void retraitStockMedicament(Medicament p_medicament, decimal p_retraitEffectuer)
         {
+            string date = System.DateTime.Now.ToShortDateString();
+            date = date.Replace("/", "-");
+            date = date.Substring(6, 4) + date.Substring(2, 4) + date.Substring(0, 2) + ' ' + System.DateTime.Now.ToLongTimeString();
             int intRetraitEffectuer = Decimal.ToInt32(p_retraitEffectuer);
             for (int i = 0; i < m_medicament.Count; i++)
             {
                 if(p_medicament == m_medicament[i])
                 {
                     m_medicament[i].set_stock(m_medicament[i].get_stock() - intRetraitEffectuer);
+                    //string maj = "2'" + m_utilisateur.get_Id() + "','"+ m_medicament[i].get_code() + "','" + date + "','retrait','" + intRetraitEffectuer + "'";
+                    string maj = "2" + m_utilisateur.get_Id() + "," + m_medicament[i].get_code() + "," + date + ",retrait," + intRetraitEffectuer;
+                    Client client = new Client(maj);
                 }
             }
 

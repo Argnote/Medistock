@@ -8,6 +8,7 @@ namespace TraineWinForm
 {
     public class Utilisateur
     {
+        private int Id;
         private string nom;
         private string prenom;
         private string fonction;
@@ -20,8 +21,9 @@ namespace TraineWinForm
         {
         }
 
-        public Utilisateur(string p_nom, string p_prenom, string p_fonction, int p_permission, string p_identifiant, string p_motDePasse)
+        public Utilisateur(int p_Id,string p_nom, string p_prenom, string p_fonction, int p_permission, string p_identifiant, string p_motDePasse)
         {
+            Id = p_Id;
             nom = p_nom;
             prenom = p_prenom;
             fonction = p_fonction;
@@ -31,6 +33,10 @@ namespace TraineWinForm
         }
 
         //liste des get
+        public int get_Id()
+        {
+            return Id;
+        }
         public string get_nom()
         {
             return nom;
