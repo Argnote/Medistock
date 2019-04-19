@@ -22,7 +22,9 @@ D:\projet\medistock\TraineWinForm\bin\Debug\TraineWinForm.exe.config
 D:\projet\medistock\TraineWinForm\bin\Debug\TraineWinForm.exe
 D:\projet\medistock\TraineWinForm\bin\Debug\TraineWinForm.pdb
 D:\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.csprojAssemblyReference.cache
-D:\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.IHM.resources
+D:\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.Gestion.resources
+D:\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.GestionAdmin.resources
+D:\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.Connection.resources
 D:\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.Properties.Resources.resources
 D:\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.csproj.GenerateResource.cache
 D:\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.csproj.CoreCompileInputs.cache

@@ -224,12 +224,17 @@ namespace TraineWinForm
         //mise a jour du stock suite d'un médicament a un ajout 
         public void ajoutStockMedicament(Medicament p_medicament, decimal p_retraitEffectuer)
         {
+            string date = System.DateTime.Now.ToShortDateString();
+            date = date.Replace("/", "-");
+            date = date.Substring(6, 4) + date.Substring(2, 4) + date.Substring(0, 2) + ' ' + System.DateTime.Now.ToLongTimeString();
             int intRetraitEffectuer = Decimal.ToInt32(p_retraitEffectuer);
             for (int i = 0; i < m_medicament.Count; i++)
             {
                 if (p_medicament == m_medicament[i])
                 {
                     m_medicament[i].set_stock(m_medicament[i].get_stock() + intRetraitEffectuer);
+                    string maj = "2" + m_utilisateur.get_Id() + "," + m_medicament[i].get_code() + "," + date + ",ajout," + intRetraitEffectuer;
+                    Client client = new Client(maj);
                 }
             }
         }

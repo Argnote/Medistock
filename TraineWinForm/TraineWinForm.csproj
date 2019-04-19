@@ -46,20 +46,39 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
-    <Compile Include="IHM.cs">
+    <Compile Include="GestionAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IHM.Designer.cs">
-      <DependentUpon>IHM.cs</DependentUpon>
+    <Compile Include="GestionAdmin.Designer.cs">
+      <DependentUpon>GestionAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion.Designer.cs">
+      <DependentUpon>Gestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Connection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Connection.Designer.cs">
+      <DependentUpon>Connection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IHM.cs" />
     <Compile Include="Medicament.cs" />
     <Compile Include="Metier.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilisateur.cs" />
-    <EmbeddedResource Include="IHM.resx">
-      <DependentUpon>IHM.cs</DependentUpon>
+    <EmbeddedResource Include="Gestion.resx">
+      <DependentUpon>Gestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionAdmin.resx">
+      <DependentUpon>GestionAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Connection.resx">
+      <DependentUpon>Connection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

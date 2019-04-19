@@ -7,7 +7,7 @@ using System.Threading;
 namespace TraineWinForm
 {
 
-    public class Client
+    class Client
     {
         private string message;
         public Client(string p_message)
@@ -17,10 +17,11 @@ namespace TraineWinForm
             NetworkStream networkStream = null;
             string demande = p_message;
             string reponse = null;
-            TcpClient ClientTcp = new TcpClient(serveur, port);
+            
 
             try
             {
+                TcpClient ClientTcp = new TcpClient(serveur, port);
                 // on se connecte au service
 
                 using (networkStream = ClientTcp.GetStream())
@@ -37,8 +38,7 @@ namespace TraineWinForm
                             //Console.Write(reponse + "\n");
                             message = reponse;
                             // on traite la réponse
-                            //}
-
+                            //
                         }
                     }
                 }

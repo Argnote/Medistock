@@ -1,6 +1,6 @@
 ﻿namespace TraineWinForm
 {
-    partial class IHM
+    partial class Connection
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -62,6 +62,7 @@
             this.l_medicamentChoisi = new System.Windows.Forms.Label();
             this.p_retraitMedicament = new System.Windows.Forms.Panel();
             this.p_modificationComplete = new System.Windows.Forms.Panel();
+            this.cb_medicamentMasqué = new System.Windows.Forms.CheckBox();
             this.b_modificationComplete = new System.Windows.Forms.Button();
             this.p_panelDegestionStock = new System.Windows.Forms.Panel();
             this.b_gestionMedicament = new System.Windows.Forms.Button();
@@ -69,7 +70,6 @@
             this.p_acceuil = new System.Windows.Forms.Panel();
             this.l_acceuil = new System.Windows.Forms.Label();
             this.b_Deconnection = new System.Windows.Forms.Button();
-            this.cb_medicamentMasqué = new System.Windows.Forms.CheckBox();
             this.p_rechercheRetraitMedicament.SuspendLayout();
             this.p_connection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_medicamentRechercher)).BeginInit();
@@ -115,7 +115,6 @@
             this.b_rechercheReapprovisionnementMedic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b_rechercheReapprovisionnementMedic.UseVisualStyleBackColor = false;
             this.b_rechercheReapprovisionnementMedic.Visible = false;
-            this.b_rechercheReapprovisionnementMedic.Click += new System.EventHandler(this.b_reapprovisionnementMedic_Click);
             // 
             // b_modifierRajouterMedic
             // 
@@ -128,7 +127,6 @@
             this.b_modifierRajouterMedic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b_modifierRajouterMedic.UseVisualStyleBackColor = false;
             this.b_modifierRajouterMedic.Visible = false;
-            this.b_modifierRajouterMedic.Click += new System.EventHandler(this.b_modifierRajouterMedic_Click);
             // 
             // b_rechecherMedicamentInfo
             // 
@@ -141,7 +139,6 @@
             this.b_rechecherMedicamentInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b_rechecherMedicamentInfo.UseVisualStyleBackColor = false;
             this.b_rechecherMedicamentInfo.Visible = false;
-            this.b_rechecherMedicamentInfo.Click += new System.EventHandler(this.b_rechecherMedicamentInfo_Click);
             // 
             // l_localisationMedicament
             // 
@@ -163,7 +160,6 @@
             this.b_RetraitMedicament.Text = "Recherche pour retrait";
             this.b_RetraitMedicament.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b_RetraitMedicament.UseVisualStyleBackColor = false;
-            this.b_RetraitMedicament.Click += new System.EventHandler(this.b_retraitMedicament_Click);
             // 
             // tb_rechercheTypeMedic
             // 
@@ -321,7 +317,6 @@
             this.dgv_medicamentRechercher.ReadOnly = true;
             this.dgv_medicamentRechercher.Size = new System.Drawing.Size(642, 102);
             this.dgv_medicamentRechercher.TabIndex = 7;
-            this.dgv_medicamentRechercher.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_medicamentRechercher_CellMouseClick);
             // 
             // Code
             // 
@@ -404,6 +399,16 @@
             this.p_modificationComplete.TabIndex = 11;
             this.p_modificationComplete.Visible = false;
             // 
+            // cb_medicamentMasqué
+            // 
+            this.cb_medicamentMasqué.AutoSize = true;
+            this.cb_medicamentMasqué.Location = new System.Drawing.Point(9, 5);
+            this.cb_medicamentMasqué.Name = "cb_medicamentMasqué";
+            this.cb_medicamentMasqué.Size = new System.Drawing.Size(189, 17);
+            this.cb_medicamentMasqué.TabIndex = 1;
+            this.cb_medicamentMasqué.Text = "Masqué les médicaments existants";
+            this.cb_medicamentMasqué.UseVisualStyleBackColor = true;
+            // 
             // b_modificationComplete
             // 
             this.b_modificationComplete.Location = new System.Drawing.Point(9, 28);
@@ -412,7 +417,6 @@
             this.b_modificationComplete.TabIndex = 0;
             this.b_modificationComplete.Text = "Mise à jour du stock";
             this.b_modificationComplete.UseVisualStyleBackColor = true;
-            this.b_modificationComplete.Click += new System.EventHandler(this.b_modificationComplete_Click);
             // 
             // p_panelDegestionStock
             // 
@@ -435,7 +439,6 @@
             this.b_gestionMedicament.Text = "Retrait médicament";
             this.b_gestionMedicament.UseVisualStyleBackColor = false;
             this.b_gestionMedicament.Visible = false;
-            this.b_gestionMedicament.Click += new System.EventHandler(this.b_gestionMedicament_Click);
             // 
             // nud_choixTailleRetraitMedicament
             // 
@@ -474,18 +477,7 @@
             this.b_Deconnection.Text = "Déconnection";
             this.b_Deconnection.UseVisualStyleBackColor = false;
             // 
-            // cb_medicamentMasqué
-            // 
-            this.cb_medicamentMasqué.AutoSize = true;
-            this.cb_medicamentMasqué.Location = new System.Drawing.Point(9, 5);
-            this.cb_medicamentMasqué.Name = "cb_medicamentMasqué";
-            this.cb_medicamentMasqué.Size = new System.Drawing.Size(189, 17);
-            this.cb_medicamentMasqué.TabIndex = 1;
-            this.cb_medicamentMasqué.Text = "Masqué les médicaments existants";
-            this.cb_medicamentMasqué.UseVisualStyleBackColor = true;
-            this.cb_medicamentMasqué.CheckedChanged += new System.EventHandler(this.cb_medicamentMasqué_CheckedChanged);
-            // 
-            // IHM
+            // Connection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -494,9 +486,8 @@
             this.Controls.Add(this.p_retraitMedicament);
             this.Controls.Add(this.p_connection);
             this.Controls.Add(this.p_rechercheRetraitMedicament);
-            this.Name = "IHM";
+            this.Name = "Connection";
             this.Text = " Médistock";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.p_rechercheRetraitMedicament.ResumeLayout(false);
             this.p_rechercheRetraitMedicament.PerformLayout();
             this.p_connection.ResumeLayout(false);

@@ -16,7 +16,7 @@ namespace TraineWinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new IHM());
+            Application.Run(new Connection());
         }
     }
 }

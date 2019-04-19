@@ -1,0 +1,12 @@
+D:\projet\medistock\TraineWinForm\bin\Debug\TraineWinForm.exe.config
+D:\projet\medistock\TraineWinForm\bin\Debug\TraineWinForm.exe
+D:\projet\medistock\TraineWinForm\bin\Debug\TraineWinForm.pdb
+D:\projet\medistock\TraineWinForm\obj\Debug\Medistock.csprojAssemblyReference.cache
+D:\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.Properties.Resources.resources
+D:\projet\medistock\TraineWinForm\obj\Debug\Medistock.csproj.GenerateResource.cache
+D:\projet\medistock\TraineWinForm\obj\Debug\Medistock.csproj.CoreCompileInputs.cache
+D:\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.exe
+D:\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.pdb
+D:\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.gestion.resources
+D:\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.GestionAdmin.resources
+D:\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.Connection.resources
