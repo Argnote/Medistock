@@ -363,7 +363,7 @@
             this.Controls.Add(this.p_rechercheRetraitMedicament);
             this.Controls.Add(this.p_acceuil);
             this.Name = "Gestion";
-            this.Text = "gestionAdmin";
+            this.Text = "Médistock";
             this.p_acceuil.ResumeLayout(false);
             this.p_acceuil.PerformLayout();
             this.p_rechercheRetraitMedicament.ResumeLayout(false);
