@@ -118,6 +118,7 @@ namespace TraineWinForm
             rechercherAll();
             p_panelDegestionStock.Visible = false;
             p_retraitMedicament.Visible = true;
+            p_modifierRajouter.Visible = true;
             dgv_medicamentRechercher.Update();
             ihm.get_metier().set_bontonChoisi(4);
             /*dgv_medicamentRechercher.Rows.Clear();
