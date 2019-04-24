@@ -96,30 +96,33 @@ namespace TraineWinForm
         }
         private void b_retraitMedicament_Click(object sender, EventArgs e)
         {
+            p_modifierRajouter.Visible = false;
             rechercherAll();
             p_retraitMedicament.Visible = true;
             b_gestionMedicament.Text = "Retrait médicament";
             p_panelDegestionStock.Visible = true;
-            p_modifierRajouter.Visible = false;
+            dgv_medicamentRechercher.ClearSelection();
             dgv_medicamentRechercher.Update();
-            ihm.get_metier().set_bontonChoisi(1);
+            ihm.get_metier().set_bontonChoisi(1);            
         }
         private void b_reapprovisionnementMedic_Click(object sender, EventArgs e)
         {
+            p_modifierRajouter.Visible = false;
             rechercherAll();
             p_retraitMedicament.Visible = true;
             b_gestionMedicament.Text = "Ajout médicament";
             p_panelDegestionStock.Visible = true;
-            p_modifierRajouter.Visible = false;
+            dgv_medicamentRechercher.ClearSelection();
             dgv_medicamentRechercher.Update();
             ihm.get_metier().set_bontonChoisi(2);
         }
         private void b_rechecherMedicamentInfo_Click(object sender, EventArgs e)
         {
+            p_modifierRajouter.Visible = false;
             rechercherAll();
             p_panelDegestionStock.Visible = false;
             p_retraitMedicament.Visible = true;
-            p_modifierRajouter.Visible = false;
+            dgv_medicamentRechercher.ClearSelection();
             dgv_medicamentRechercher.Update();
             ihm.get_metier().set_bontonChoisi(4);
         }
@@ -130,6 +133,7 @@ namespace TraineWinForm
             p_panelDegestionStock.Visible = false;
             p_retraitMedicament.Visible = true;
             p_modifierRajouter.Visible = true;
+            dgv_medicamentRechercher.ClearSelection();
             dgv_medicamentRechercher.Update();
             ihm.get_metier().set_bontonChoisi(3);
             int idMedicament = 1 + ihm.get_metier().get_m_medicament().Count;

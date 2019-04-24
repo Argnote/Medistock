@@ -63,6 +63,7 @@
             this.localisation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.p_modifierRajouter = new System.Windows.Forms.Panel();
             this.p_modificationMedicament = new System.Windows.Forms.Panel();
+            this.b_mMedicament = new System.Windows.Forms.Button();
             this.l_mLocalisation = new System.Windows.Forms.Label();
             this.l_mStock = new System.Windows.Forms.Label();
             this.cob_mLocalisation = new System.Windows.Forms.ComboBox();
@@ -82,6 +83,7 @@
             this.l_choixModification = new System.Windows.Forms.Label();
             this.l_modificationMedicament = new System.Windows.Forms.Label();
             this.p_nouveauMedecament = new System.Windows.Forms.Panel();
+            this.b_nMedicament = new System.Windows.Forms.Button();
             this.l_nLocalisation = new System.Windows.Forms.Label();
             this.cob_nLocalisation = new System.Windows.Forms.ComboBox();
             this.tb_nCode = new System.Windows.Forms.TextBox();
@@ -99,8 +101,6 @@
             this.tb_nType = new System.Windows.Forms.TextBox();
             this.tb_nNom = new System.Windows.Forms.TextBox();
             this.l_nouveauMedicament = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.p_acceuil.SuspendLayout();
             this.p_rechercheRetraitMedicament.SuspendLayout();
             this.p_retraitMedicament.SuspendLayout();
@@ -440,7 +440,7 @@
             // p_modificationMedicament
             // 
             this.p_modificationMedicament.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.p_modificationMedicament.Controls.Add(this.button2);
+            this.p_modificationMedicament.Controls.Add(this.b_mMedicament);
             this.p_modificationMedicament.Controls.Add(this.l_mLocalisation);
             this.p_modificationMedicament.Controls.Add(this.l_mStock);
             this.p_modificationMedicament.Controls.Add(this.cob_mLocalisation);
@@ -463,6 +463,16 @@
             this.p_modificationMedicament.Name = "p_modificationMedicament";
             this.p_modificationMedicament.Size = new System.Drawing.Size(396, 305);
             this.p_modificationMedicament.TabIndex = 3;
+            // 
+            // b_mMedicament
+            // 
+            this.b_mMedicament.BackColor = System.Drawing.Color.White;
+            this.b_mMedicament.Location = new System.Drawing.Point(132, 279);
+            this.b_mMedicament.Name = "b_mMedicament";
+            this.b_mMedicament.Size = new System.Drawing.Size(126, 23);
+            this.b_mMedicament.TabIndex = 25;
+            this.b_mMedicament.Text = "Modifier le médicament";
+            this.b_mMedicament.UseVisualStyleBackColor = false;
             // 
             // l_mLocalisation
             // 
@@ -608,7 +618,7 @@
             // p_nouveauMedecament
             // 
             this.p_nouveauMedecament.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.p_nouveauMedecament.Controls.Add(this.button1);
+            this.p_nouveauMedecament.Controls.Add(this.b_nMedicament);
             this.p_nouveauMedecament.Controls.Add(this.l_nLocalisation);
             this.p_nouveauMedecament.Controls.Add(this.cob_nLocalisation);
             this.p_nouveauMedecament.Controls.Add(this.tb_nCode);
@@ -630,6 +640,16 @@
             this.p_nouveauMedecament.Name = "p_nouveauMedecament";
             this.p_nouveauMedecament.Size = new System.Drawing.Size(412, 305);
             this.p_nouveauMedecament.TabIndex = 2;
+            // 
+            // b_nMedicament
+            // 
+            this.b_nMedicament.BackColor = System.Drawing.Color.White;
+            this.b_nMedicament.Location = new System.Drawing.Point(132, 279);
+            this.b_nMedicament.Name = "b_nMedicament";
+            this.b_nMedicament.Size = new System.Drawing.Size(121, 23);
+            this.b_nMedicament.TabIndex = 24;
+            this.b_nMedicament.Text = "Ajouter un nouveau médicament";
+            this.b_nMedicament.UseVisualStyleBackColor = false;
             // 
             // l_nLocalisation
             // 
@@ -762,26 +782,6 @@
             this.l_nouveauMedicament.TabIndex = 0;
             this.l_nouveauMedicament.Text = "Insérer un nouveau médicament";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(155, 279);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(156, 278);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // GestionAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -889,7 +889,7 @@
         private System.Windows.Forms.Label l_mLocalisation;
         private System.Windows.Forms.ComboBox cob_mLocalisation;
         private System.Windows.Forms.Label l_nLocalisation;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button b_mMedicament;
+        private System.Windows.Forms.Button b_nMedicament;
     }
 }
