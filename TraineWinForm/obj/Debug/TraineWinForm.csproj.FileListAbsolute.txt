@@ -54,3 +54,15 @@ C:\Users\ewan2\Documents\medistock\TraineWinForm\obj\Debug\TraineWinForm.csproj.
 C:\Users\ewan2\Documents\medistock\TraineWinForm\obj\Debug\TraineWinForm.csproj.CoreCompileInputs.cache
 C:\Users\ewan2\Documents\medistock\TraineWinForm\obj\Debug\TraineWinForm.exe
 C:\Users\ewan2\Documents\medistock\TraineWinForm\obj\Debug\TraineWinForm.pdb
+C:\Users\ewan2\Documents\projet\medistock\TraineWinForm\bin\Debug\TraineWinForm.exe.config
+C:\Users\ewan2\Documents\projet\medistock\TraineWinForm\bin\Debug\TraineWinForm.exe
+C:\Users\ewan2\Documents\projet\medistock\TraineWinForm\bin\Debug\TraineWinForm.pdb
+C:\Users\ewan2\Documents\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.csprojAssemblyReference.cache
+C:\Users\ewan2\Documents\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.Gestion.resources
+C:\Users\ewan2\Documents\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.GestionAdmin.resources
+C:\Users\ewan2\Documents\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.Connection.resources
+C:\Users\ewan2\Documents\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.Properties.Resources.resources
+C:\Users\ewan2\Documents\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.csproj.GenerateResource.cache
+C:\Users\ewan2\Documents\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.csproj.CoreCompileInputs.cache
+C:\Users\ewan2\Documents\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.exe
+C:\Users\ewan2\Documents\projet\medistock\TraineWinForm\obj\Debug\TraineWinForm.pdb

@@ -12,6 +12,7 @@ namespace TraineWinForm
         private List<Medicament> m_medicamentRecherche;
         //patient pour plus tard private List<Patient> m_patient;
         private Utilisateur m_utilisateur;
+        private List<string> listLocalisation;
         private bool connection;
         private bool controleCreationListRecherche;
         private int boutonChoisi;
@@ -61,6 +62,10 @@ namespace TraineWinForm
         {
             return indiceMedicamentChoisi;
         }
+        public List<string> get_listLocalisation()
+        {
+            return listLocalisation;
+        }
         public int get_boutonChoisi()
         {
             return boutonChoisi;
@@ -94,13 +99,20 @@ namespace TraineWinForm
             string message = client.getMessage();
             if(message != "faux" && message != null)
             {
-                string[] splitmessage = message.Split('*');
+                string[] split = message.Split('/');
+                listLocalisation = new List<string>();
+                for (int i = 1; i < split.Length; i++)
+                {
+                    string[] splitlocalisation = split[i].Split(',');
+                    listLocalisation.Add(splitlocalisation[0] + splitlocalisation[1] + " / " + splitlocalisation[2]);  
+                }
+                string[] splitmessage = split[0].Split('*');
                 string[] splitUtilisateur = splitmessage[0].Split(';');
                 m_utilisateur = new Utilisateur(Int32.Parse(splitUtilisateur[0]), splitUtilisateur[1], splitUtilisateur[2], splitUtilisateur[3], Int32.Parse(splitUtilisateur[4]), splitUtilisateur[5], splitUtilisateur[6]);
                 for(int i = 1; i < splitmessage.Length; i++)
                 {
                     string[] splitmedicament = splitmessage[i].Split(',');
-                    string localisation = splitmedicament[7] + splitmedicament[8] + " / " + splitmedicament[9];
+                    string localisationMedicament = splitmedicament[7] + splitmedicament[8] + " / " + splitmedicament[9];
                     int stock = Int32.Parse(splitmedicament[5]);
                     for (int j = 10; j < splitmedicament.Length; j ++)
                     {
@@ -114,7 +126,7 @@ namespace TraineWinForm
                             stock = stock + Int32.Parse(splitAction[1]);
                         }
                     }
-                    m_medicament.Add(new Medicament(splitmedicament[0], splitmedicament[1], splitmedicament[2], splitmedicament[3], splitmedicament[4], localisation, stock, Int32.Parse(splitmedicament[6])));
+                    m_medicament.Add(new Medicament(splitmedicament[0], splitmedicament[1], splitmedicament[2], splitmedicament[3], splitmedicament[4], localisationMedicament, stock, Int32.Parse(splitmedicament[6])));
                 }
                 //DAO();
                 connection = true;
