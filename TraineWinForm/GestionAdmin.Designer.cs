@@ -49,8 +49,6 @@
             this.l_retraitMedicament = new System.Windows.Forms.Label();
             this.p_retraitMedicament = new System.Windows.Forms.Panel();
             this.p_panelDegestionStock = new System.Windows.Forms.Panel();
-            this.p_modificationComplete = new System.Windows.Forms.Panel();
-            this.b_modificationComplete = new System.Windows.Forms.Button();
             this.l_medicamentChoisi = new System.Windows.Forms.Label();
             this.b_gestionMedicament = new System.Windows.Forms.Button();
             this.nud_choixTailleRetraitMedicament = new System.Windows.Forms.NumericUpDown();
@@ -65,9 +63,31 @@
             this.localisation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.p_modifierRajouter = new System.Windows.Forms.Panel();
             this.p_modificationMedicament = new System.Windows.Forms.Panel();
+            this.l_mLocalisation = new System.Windows.Forms.Label();
+            this.l_mStock = new System.Windows.Forms.Label();
+            this.cob_mLocalisation = new System.Windows.Forms.ComboBox();
+            this.tb_mStock = new System.Windows.Forms.TextBox();
+            this.tb_mCode = new System.Windows.Forms.TextBox();
+            this.l_mCode = new System.Windows.Forms.Label();
+            this.nud_mSeuilCritique = new System.Windows.Forms.NumericUpDown();
+            this.l_mSeuilCritique = new System.Windows.Forms.Label();
+            this.l_mPrincipeActif = new System.Windows.Forms.Label();
+            this.l_mTypeMesure = new System.Windows.Forms.Label();
+            this.l_mType = new System.Windows.Forms.Label();
+            this.l_mNom = new System.Windows.Forms.Label();
+            this.tb_mTypeMesure = new System.Windows.Forms.TextBox();
+            this.tb_mPrincipeActif = new System.Windows.Forms.TextBox();
+            this.tb_mType = new System.Windows.Forms.TextBox();
+            this.tb_mNom = new System.Windows.Forms.TextBox();
             this.l_choixModification = new System.Windows.Forms.Label();
             this.l_modificationMedicament = new System.Windows.Forms.Label();
             this.p_nouveauMedecament = new System.Windows.Forms.Panel();
+            this.l_nLocalisation = new System.Windows.Forms.Label();
+            this.cob_nLocalisation = new System.Windows.Forms.ComboBox();
+            this.tb_nCode = new System.Windows.Forms.TextBox();
+            this.nud_nSeuilCritique = new System.Windows.Forms.NumericUpDown();
+            this.l_nCode = new System.Windows.Forms.Label();
+            this.nud_nStock = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -76,36 +96,28 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tb_nTypeMesure = new System.Windows.Forms.TextBox();
             this.tb_nPrincipeActif = new System.Windows.Forms.TextBox();
-            this.tb_nStock = new System.Windows.Forms.TextBox();
-            this.tb_nSeuilCritique = new System.Windows.Forms.TextBox();
             this.tb_nType = new System.Windows.Forms.TextBox();
             this.tb_nNom = new System.Windows.Forms.TextBox();
             this.l_nouveauMedicament = new System.Windows.Forms.Label();
-            this.tb_mNom = new System.Windows.Forms.TextBox();
-            this.tb_mType = new System.Windows.Forms.TextBox();
-            this.tb_mPrincipeActif = new System.Windows.Forms.TextBox();
-            this.tb_mTypeMesure = new System.Windows.Forms.TextBox();
-            this.tb_mSeuilCritique = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.p_acceuil.SuspendLayout();
             this.p_rechercheRetraitMedicament.SuspendLayout();
             this.p_retraitMedicament.SuspendLayout();
             this.p_panelDegestionStock.SuspendLayout();
-            this.p_modificationComplete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_choixTailleRetraitMedicament)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_medicamentRechercher)).BeginInit();
             this.p_modifierRajouter.SuspendLayout();
             this.p_modificationMedicament.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_mSeuilCritique)).BeginInit();
             this.p_nouveauMedecament.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_nSeuilCritique)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_nStock)).BeginInit();
             this.SuspendLayout();
             // 
             // p_acceuil
             // 
-            this.p_acceuil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.p_acceuil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.p_acceuil.Controls.Add(this.l_acceuil);
             this.p_acceuil.Controls.Add(this.b_Deconnection);
             this.p_acceuil.Location = new System.Drawing.Point(12, 12);
@@ -123,7 +135,7 @@
             // 
             // b_Deconnection
             // 
-            this.b_Deconnection.BackColor = System.Drawing.Color.Red;
+            this.b_Deconnection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.b_Deconnection.Location = new System.Drawing.Point(3, -1);
             this.b_Deconnection.Name = "b_Deconnection";
             this.b_Deconnection.Size = new System.Drawing.Size(90, 23);
@@ -134,7 +146,7 @@
             // 
             // p_rechercheRetraitMedicament
             // 
-            this.p_rechercheRetraitMedicament.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.p_rechercheRetraitMedicament.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.p_rechercheRetraitMedicament.Controls.Add(this.cb_allMedicament);
             this.p_rechercheRetraitMedicament.Controls.Add(this.b_rechercheReapprovisionnementMedic);
             this.p_rechercheRetraitMedicament.Controls.Add(this.b_modifierRajouterMedic);
@@ -294,7 +306,7 @@
             // 
             // p_retraitMedicament
             // 
-            this.p_retraitMedicament.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.p_retraitMedicament.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.p_retraitMedicament.Controls.Add(this.p_panelDegestionStock);
             this.p_retraitMedicament.Controls.Add(this.dgv_medicamentRechercher);
             this.p_retraitMedicament.Location = new System.Drawing.Point(445, 12);
@@ -305,33 +317,14 @@
             // 
             // p_panelDegestionStock
             // 
-            this.p_panelDegestionStock.Controls.Add(this.p_modificationComplete);
             this.p_panelDegestionStock.Controls.Add(this.l_medicamentChoisi);
             this.p_panelDegestionStock.Controls.Add(this.b_gestionMedicament);
             this.p_panelDegestionStock.Controls.Add(this.nud_choixTailleRetraitMedicament);
-            this.p_panelDegestionStock.Location = new System.Drawing.Point(11, 271);
+            this.p_panelDegestionStock.Location = new System.Drawing.Point(11, 283);
             this.p_panelDegestionStock.Name = "p_panelDegestionStock";
-            this.p_panelDegestionStock.Size = new System.Drawing.Size(615, 50);
+            this.p_panelDegestionStock.Size = new System.Drawing.Size(712, 50);
             this.p_panelDegestionStock.TabIndex = 11;
             this.p_panelDegestionStock.Visible = false;
-            // 
-            // p_modificationComplete
-            // 
-            this.p_modificationComplete.Controls.Add(this.b_modificationComplete);
-            this.p_modificationComplete.Location = new System.Drawing.Point(403, 0);
-            this.p_modificationComplete.Name = "p_modificationComplete";
-            this.p_modificationComplete.Size = new System.Drawing.Size(209, 56);
-            this.p_modificationComplete.TabIndex = 11;
-            this.p_modificationComplete.Visible = false;
-            // 
-            // b_modificationComplete
-            // 
-            this.b_modificationComplete.Location = new System.Drawing.Point(9, 28);
-            this.b_modificationComplete.Name = "b_modificationComplete";
-            this.b_modificationComplete.Size = new System.Drawing.Size(132, 23);
-            this.b_modificationComplete.TabIndex = 0;
-            this.b_modificationComplete.Text = "Mise à jour du stock";
-            this.b_modificationComplete.UseVisualStyleBackColor = true;
             // 
             // l_medicamentChoisi
             // 
@@ -366,7 +359,7 @@
             // 
             this.dgv_medicamentRechercher.AllowUserToAddRows = false;
             this.dgv_medicamentRechercher.AllowUserToDeleteRows = false;
-            this.dgv_medicamentRechercher.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_medicamentRechercher.BackgroundColor = System.Drawing.Color.AntiqueWhite;
             this.dgv_medicamentRechercher.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_medicamentRechercher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_medicamentRechercher.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -378,10 +371,10 @@
             this.Stock,
             this.seuilCritique,
             this.localisation});
-            this.dgv_medicamentRechercher.Location = new System.Drawing.Point(11, 15);
+            this.dgv_medicamentRechercher.Location = new System.Drawing.Point(17, 15);
             this.dgv_medicamentRechercher.Name = "dgv_medicamentRechercher";
             this.dgv_medicamentRechercher.ReadOnly = true;
-            this.dgv_medicamentRechercher.Size = new System.Drawing.Size(850, 248);
+            this.dgv_medicamentRechercher.Size = new System.Drawing.Size(840, 269);
             this.dgv_medicamentRechercher.TabIndex = 7;
             this.dgv_medicamentRechercher.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_medicamentRechercher_CellMouseClick);
             // 
@@ -435,34 +428,164 @@
             // 
             // p_modifierRajouter
             // 
-            this.p_modifierRajouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.p_modifierRajouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.p_modifierRajouter.Controls.Add(this.p_modificationMedicament);
             this.p_modifierRajouter.Controls.Add(this.p_nouveauMedecament);
             this.p_modifierRajouter.Location = new System.Drawing.Point(445, 351);
             this.p_modifierRajouter.Name = "p_modifierRajouter";
-            this.p_modifierRajouter.Size = new System.Drawing.Size(869, 303);
+            this.p_modifierRajouter.Size = new System.Drawing.Size(869, 332);
             this.p_modifierRajouter.TabIndex = 14;
             this.p_modifierRajouter.Visible = false;
             // 
             // p_modificationMedicament
             // 
-            this.p_modificationMedicament.BackColor = System.Drawing.Color.Silver;
-            this.p_modificationMedicament.Controls.Add(this.label11);
-            this.p_modificationMedicament.Controls.Add(this.label10);
-            this.p_modificationMedicament.Controls.Add(this.label9);
-            this.p_modificationMedicament.Controls.Add(this.label8);
-            this.p_modificationMedicament.Controls.Add(this.label7);
-            this.p_modificationMedicament.Controls.Add(this.tb_mSeuilCritique);
+            this.p_modificationMedicament.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.p_modificationMedicament.Controls.Add(this.button2);
+            this.p_modificationMedicament.Controls.Add(this.l_mLocalisation);
+            this.p_modificationMedicament.Controls.Add(this.l_mStock);
+            this.p_modificationMedicament.Controls.Add(this.cob_mLocalisation);
+            this.p_modificationMedicament.Controls.Add(this.tb_mStock);
+            this.p_modificationMedicament.Controls.Add(this.tb_mCode);
+            this.p_modificationMedicament.Controls.Add(this.l_mCode);
+            this.p_modificationMedicament.Controls.Add(this.nud_mSeuilCritique);
+            this.p_modificationMedicament.Controls.Add(this.l_mSeuilCritique);
+            this.p_modificationMedicament.Controls.Add(this.l_mPrincipeActif);
+            this.p_modificationMedicament.Controls.Add(this.l_mTypeMesure);
+            this.p_modificationMedicament.Controls.Add(this.l_mType);
+            this.p_modificationMedicament.Controls.Add(this.l_mNom);
             this.p_modificationMedicament.Controls.Add(this.tb_mTypeMesure);
             this.p_modificationMedicament.Controls.Add(this.tb_mPrincipeActif);
             this.p_modificationMedicament.Controls.Add(this.tb_mType);
             this.p_modificationMedicament.Controls.Add(this.tb_mNom);
             this.p_modificationMedicament.Controls.Add(this.l_choixModification);
             this.p_modificationMedicament.Controls.Add(this.l_modificationMedicament);
-            this.p_modificationMedicament.Location = new System.Drawing.Point(449, 15);
+            this.p_modificationMedicament.Location = new System.Drawing.Point(465, 15);
             this.p_modificationMedicament.Name = "p_modificationMedicament";
-            this.p_modificationMedicament.Size = new System.Drawing.Size(412, 272);
+            this.p_modificationMedicament.Size = new System.Drawing.Size(396, 305);
             this.p_modificationMedicament.TabIndex = 3;
+            // 
+            // l_mLocalisation
+            // 
+            this.l_mLocalisation.Location = new System.Drawing.Point(9, 255);
+            this.l_mLocalisation.Name = "l_mLocalisation";
+            this.l_mLocalisation.Size = new System.Drawing.Size(190, 20);
+            this.l_mLocalisation.TabIndex = 25;
+            this.l_mLocalisation.Text = "Localisation du médicament";
+            // 
+            // l_mStock
+            // 
+            this.l_mStock.Location = new System.Drawing.Point(9, 203);
+            this.l_mStock.Name = "l_mStock";
+            this.l_mStock.Size = new System.Drawing.Size(190, 20);
+            this.l_mStock.TabIndex = 19;
+            this.l_mStock.Text = "Stock du médicament";
+            // 
+            // cob_mLocalisation
+            // 
+            this.cob_mLocalisation.FormattingEnabled = true;
+            this.cob_mLocalisation.Location = new System.Drawing.Point(230, 252);
+            this.cob_mLocalisation.Name = "cob_mLocalisation";
+            this.cob_mLocalisation.Size = new System.Drawing.Size(156, 21);
+            this.cob_mLocalisation.TabIndex = 24;
+            // 
+            // tb_mStock
+            // 
+            this.tb_mStock.Enabled = false;
+            this.tb_mStock.Location = new System.Drawing.Point(230, 200);
+            this.tb_mStock.Name = "tb_mStock";
+            this.tb_mStock.Size = new System.Drawing.Size(156, 20);
+            this.tb_mStock.TabIndex = 18;
+            // 
+            // tb_mCode
+            // 
+            this.tb_mCode.Enabled = false;
+            this.tb_mCode.Location = new System.Drawing.Point(230, 67);
+            this.tb_mCode.Name = "tb_mCode";
+            this.tb_mCode.Size = new System.Drawing.Size(156, 20);
+            this.tb_mCode.TabIndex = 17;
+            // 
+            // l_mCode
+            // 
+            this.l_mCode.Location = new System.Drawing.Point(9, 70);
+            this.l_mCode.Name = "l_mCode";
+            this.l_mCode.Size = new System.Drawing.Size(190, 20);
+            this.l_mCode.TabIndex = 16;
+            this.l_mCode.Text = "Code du médicament";
+            // 
+            // nud_mSeuilCritique
+            // 
+            this.nud_mSeuilCritique.Location = new System.Drawing.Point(230, 226);
+            this.nud_mSeuilCritique.Name = "nud_mSeuilCritique";
+            this.nud_mSeuilCritique.Size = new System.Drawing.Size(156, 20);
+            this.nud_mSeuilCritique.TabIndex = 15;
+            // 
+            // l_mSeuilCritique
+            // 
+            this.l_mSeuilCritique.Location = new System.Drawing.Point(9, 228);
+            this.l_mSeuilCritique.Name = "l_mSeuilCritique";
+            this.l_mSeuilCritique.Size = new System.Drawing.Size(190, 20);
+            this.l_mSeuilCritique.TabIndex = 14;
+            this.l_mSeuilCritique.Text = "Seuil critique du médicament";
+            // 
+            // l_mPrincipeActif
+            // 
+            this.l_mPrincipeActif.Location = new System.Drawing.Point(9, 177);
+            this.l_mPrincipeActif.Name = "l_mPrincipeActif";
+            this.l_mPrincipeActif.Size = new System.Drawing.Size(190, 20);
+            this.l_mPrincipeActif.TabIndex = 14;
+            this.l_mPrincipeActif.Text = "Principe actif du médicament";
+            // 
+            // l_mTypeMesure
+            // 
+            this.l_mTypeMesure.Location = new System.Drawing.Point(9, 148);
+            this.l_mTypeMesure.Name = "l_mTypeMesure";
+            this.l_mTypeMesure.Size = new System.Drawing.Size(190, 20);
+            this.l_mTypeMesure.TabIndex = 14;
+            this.l_mTypeMesure.Text = "Type de mesure du médicament";
+            // 
+            // l_mType
+            // 
+            this.l_mType.Location = new System.Drawing.Point(9, 122);
+            this.l_mType.Name = "l_mType";
+            this.l_mType.Size = new System.Drawing.Size(190, 20);
+            this.l_mType.TabIndex = 14;
+            this.l_mType.Text = "Type du médicament";
+            // 
+            // l_mNom
+            // 
+            this.l_mNom.Location = new System.Drawing.Point(9, 96);
+            this.l_mNom.Name = "l_mNom";
+            this.l_mNom.Size = new System.Drawing.Size(190, 20);
+            this.l_mNom.TabIndex = 14;
+            this.l_mNom.Text = "Nom du médicament";
+            // 
+            // tb_mTypeMesure
+            // 
+            this.tb_mTypeMesure.Location = new System.Drawing.Point(230, 145);
+            this.tb_mTypeMesure.Name = "tb_mTypeMesure";
+            this.tb_mTypeMesure.Size = new System.Drawing.Size(156, 20);
+            this.tb_mTypeMesure.TabIndex = 13;
+            // 
+            // tb_mPrincipeActif
+            // 
+            this.tb_mPrincipeActif.Location = new System.Drawing.Point(230, 174);
+            this.tb_mPrincipeActif.Name = "tb_mPrincipeActif";
+            this.tb_mPrincipeActif.Size = new System.Drawing.Size(156, 20);
+            this.tb_mPrincipeActif.TabIndex = 12;
+            // 
+            // tb_mType
+            // 
+            this.tb_mType.Location = new System.Drawing.Point(230, 119);
+            this.tb_mType.Name = "tb_mType";
+            this.tb_mType.Size = new System.Drawing.Size(156, 20);
+            this.tb_mType.TabIndex = 11;
+            // 
+            // tb_mNom
+            // 
+            this.tb_mNom.Location = new System.Drawing.Point(230, 93);
+            this.tb_mNom.Name = "tb_mNom";
+            this.tb_mNom.Size = new System.Drawing.Size(156, 20);
+            this.tb_mNom.TabIndex = 10;
             // 
             // l_choixModification
             // 
@@ -484,7 +607,14 @@
             // 
             // p_nouveauMedecament
             // 
-            this.p_nouveauMedecament.BackColor = System.Drawing.Color.Silver;
+            this.p_nouveauMedecament.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.p_nouveauMedecament.Controls.Add(this.button1);
+            this.p_nouveauMedecament.Controls.Add(this.l_nLocalisation);
+            this.p_nouveauMedecament.Controls.Add(this.cob_nLocalisation);
+            this.p_nouveauMedecament.Controls.Add(this.tb_nCode);
+            this.p_nouveauMedecament.Controls.Add(this.nud_nSeuilCritique);
+            this.p_nouveauMedecament.Controls.Add(this.l_nCode);
+            this.p_nouveauMedecament.Controls.Add(this.nud_nStock);
             this.p_nouveauMedecament.Controls.Add(this.label6);
             this.p_nouveauMedecament.Controls.Add(this.label5);
             this.p_nouveauMedecament.Controls.Add(this.label4);
@@ -493,19 +623,63 @@
             this.p_nouveauMedecament.Controls.Add(this.label1);
             this.p_nouveauMedecament.Controls.Add(this.tb_nTypeMesure);
             this.p_nouveauMedecament.Controls.Add(this.tb_nPrincipeActif);
-            this.p_nouveauMedecament.Controls.Add(this.tb_nStock);
-            this.p_nouveauMedecament.Controls.Add(this.tb_nSeuilCritique);
             this.p_nouveauMedecament.Controls.Add(this.tb_nType);
             this.p_nouveauMedecament.Controls.Add(this.tb_nNom);
             this.p_nouveauMedecament.Controls.Add(this.l_nouveauMedicament);
             this.p_nouveauMedecament.Location = new System.Drawing.Point(11, 15);
             this.p_nouveauMedecament.Name = "p_nouveauMedecament";
-            this.p_nouveauMedecament.Size = new System.Drawing.Size(412, 272);
+            this.p_nouveauMedecament.Size = new System.Drawing.Size(412, 305);
             this.p_nouveauMedecament.TabIndex = 2;
+            // 
+            // l_nLocalisation
+            // 
+            this.l_nLocalisation.Location = new System.Drawing.Point(13, 249);
+            this.l_nLocalisation.Name = "l_nLocalisation";
+            this.l_nLocalisation.Size = new System.Drawing.Size(190, 20);
+            this.l_nLocalisation.TabIndex = 23;
+            this.l_nLocalisation.Text = "Localisation du médicament";
+            // 
+            // cob_nLocalisation
+            // 
+            this.cob_nLocalisation.FormattingEnabled = true;
+            this.cob_nLocalisation.Location = new System.Drawing.Point(234, 249);
+            this.cob_nLocalisation.Name = "cob_nLocalisation";
+            this.cob_nLocalisation.Size = new System.Drawing.Size(156, 21);
+            this.cob_nLocalisation.TabIndex = 22;
+            // 
+            // tb_nCode
+            // 
+            this.tb_nCode.Enabled = false;
+            this.tb_nCode.Location = new System.Drawing.Point(234, 67);
+            this.tb_nCode.Name = "tb_nCode";
+            this.tb_nCode.Size = new System.Drawing.Size(156, 20);
+            this.tb_nCode.TabIndex = 21;
+            // 
+            // nud_nSeuilCritique
+            // 
+            this.nud_nSeuilCritique.Location = new System.Drawing.Point(234, 223);
+            this.nud_nSeuilCritique.Name = "nud_nSeuilCritique";
+            this.nud_nSeuilCritique.Size = new System.Drawing.Size(156, 20);
+            this.nud_nSeuilCritique.TabIndex = 21;
+            // 
+            // l_nCode
+            // 
+            this.l_nCode.Location = new System.Drawing.Point(13, 70);
+            this.l_nCode.Name = "l_nCode";
+            this.l_nCode.Size = new System.Drawing.Size(190, 20);
+            this.l_nCode.TabIndex = 20;
+            this.l_nCode.Text = "Code du médicament";
+            // 
+            // nud_nStock
+            // 
+            this.nud_nStock.Location = new System.Drawing.Point(234, 197);
+            this.nud_nStock.Name = "nud_nStock";
+            this.nud_nStock.Size = new System.Drawing.Size(156, 20);
+            this.nud_nStock.TabIndex = 20;
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(12, 70);
+            this.label6.Location = new System.Drawing.Point(13, 93);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(190, 20);
             this.label6.TabIndex = 13;
@@ -513,7 +687,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(12, 96);
+            this.label5.Location = new System.Drawing.Point(13, 119);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(190, 20);
             this.label5.TabIndex = 12;
@@ -521,7 +695,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(12, 200);
+            this.label4.Location = new System.Drawing.Point(13, 223);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(190, 20);
             this.label4.TabIndex = 11;
@@ -529,7 +703,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(12, 174);
+            this.label3.Location = new System.Drawing.Point(13, 197);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(190, 20);
             this.label3.TabIndex = 10;
@@ -537,7 +711,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(12, 148);
+            this.label2.Location = new System.Drawing.Point(13, 171);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(190, 20);
             this.label2.TabIndex = 9;
@@ -545,7 +719,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(12, 122);
+            this.label1.Location = new System.Drawing.Point(13, 145);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(190, 20);
             this.label1.TabIndex = 8;
@@ -553,42 +727,28 @@
             // 
             // tb_nTypeMesure
             // 
-            this.tb_nTypeMesure.Location = new System.Drawing.Point(233, 122);
+            this.tb_nTypeMesure.Location = new System.Drawing.Point(234, 145);
             this.tb_nTypeMesure.Name = "tb_nTypeMesure";
             this.tb_nTypeMesure.Size = new System.Drawing.Size(156, 20);
             this.tb_nTypeMesure.TabIndex = 6;
             // 
             // tb_nPrincipeActif
             // 
-            this.tb_nPrincipeActif.Location = new System.Drawing.Point(233, 148);
+            this.tb_nPrincipeActif.Location = new System.Drawing.Point(234, 171);
             this.tb_nPrincipeActif.Name = "tb_nPrincipeActif";
             this.tb_nPrincipeActif.Size = new System.Drawing.Size(156, 20);
             this.tb_nPrincipeActif.TabIndex = 5;
             // 
-            // tb_nStock
-            // 
-            this.tb_nStock.Location = new System.Drawing.Point(233, 174);
-            this.tb_nStock.Name = "tb_nStock";
-            this.tb_nStock.Size = new System.Drawing.Size(156, 20);
-            this.tb_nStock.TabIndex = 4;
-            // 
-            // tb_nSeuilCritique
-            // 
-            this.tb_nSeuilCritique.Location = new System.Drawing.Point(233, 200);
-            this.tb_nSeuilCritique.Name = "tb_nSeuilCritique";
-            this.tb_nSeuilCritique.Size = new System.Drawing.Size(156, 20);
-            this.tb_nSeuilCritique.TabIndex = 3;
-            // 
             // tb_nType
             // 
-            this.tb_nType.Location = new System.Drawing.Point(233, 96);
+            this.tb_nType.Location = new System.Drawing.Point(234, 119);
             this.tb_nType.Name = "tb_nType";
             this.tb_nType.Size = new System.Drawing.Size(156, 20);
             this.tb_nType.TabIndex = 2;
             // 
             // tb_nNom
             // 
-            this.tb_nNom.Location = new System.Drawing.Point(233, 70);
+            this.tb_nNom.Location = new System.Drawing.Point(234, 93);
             this.tb_nNom.Name = "tb_nNom";
             this.tb_nNom.Size = new System.Drawing.Size(156, 20);
             this.tb_nNom.TabIndex = 1;
@@ -602,86 +762,32 @@
             this.l_nouveauMedicament.TabIndex = 0;
             this.l_nouveauMedicament.Text = "Insérer un nouveau médicament";
             // 
-            // tb_mNom
+            // button1
             // 
-            this.tb_mNom.Location = new System.Drawing.Point(236, 70);
-            this.tb_mNom.Name = "tb_mNom";
-            this.tb_mNom.Size = new System.Drawing.Size(156, 20);
-            this.tb_mNom.TabIndex = 10;
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(155, 279);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = false;
             // 
-            // tb_mType
+            // button2
             // 
-            this.tb_mType.Location = new System.Drawing.Point(236, 96);
-            this.tb_mType.Name = "tb_mType";
-            this.tb_mType.Size = new System.Drawing.Size(156, 20);
-            this.tb_mType.TabIndex = 11;
-            // 
-            // tb_mPrincipeActif
-            // 
-            this.tb_mPrincipeActif.Location = new System.Drawing.Point(236, 148);
-            this.tb_mPrincipeActif.Name = "tb_mPrincipeActif";
-            this.tb_mPrincipeActif.Size = new System.Drawing.Size(156, 20);
-            this.tb_mPrincipeActif.TabIndex = 12;
-            // 
-            // tb_mTypeMesure
-            // 
-            this.tb_mTypeMesure.Location = new System.Drawing.Point(236, 122);
-            this.tb_mTypeMesure.Name = "tb_mTypeMesure";
-            this.tb_mTypeMesure.Size = new System.Drawing.Size(156, 20);
-            this.tb_mTypeMesure.TabIndex = 13;
-            // 
-            // tb_mSeuilCritique
-            // 
-            this.tb_mSeuilCritique.Location = new System.Drawing.Point(236, 174);
-            this.tb_mSeuilCritique.Name = "tb_mSeuilCritique";
-            this.tb_mSeuilCritique.Size = new System.Drawing.Size(156, 20);
-            this.tb_mSeuilCritique.TabIndex = 14;
-            // 
-            // label7
-            // 
-            this.label7.Location = new System.Drawing.Point(15, 73);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(190, 20);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Nom du médicament";
-            // 
-            // label8
-            // 
-            this.label8.Location = new System.Drawing.Point(15, 99);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(190, 20);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Type du médicament";
-            // 
-            // label9
-            // 
-            this.label9.Location = new System.Drawing.Point(15, 125);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(190, 20);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Type de mesure du médicament";
-            // 
-            // label10
-            // 
-            this.label10.Location = new System.Drawing.Point(15, 151);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(190, 20);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "Principe actif du médicament";
-            // 
-            // label11
-            // 
-            this.label11.Location = new System.Drawing.Point(15, 177);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(190, 20);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "Seuil critique du médicament";
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(156, 278);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // GestionAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1324, 666);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1324, 724);
             this.Controls.Add(this.p_modifierRajouter);
             this.Controls.Add(this.p_retraitMedicament);
             this.Controls.Add(this.p_rechercheRetraitMedicament);
@@ -696,14 +802,16 @@
             this.p_retraitMedicament.ResumeLayout(false);
             this.p_panelDegestionStock.ResumeLayout(false);
             this.p_panelDegestionStock.PerformLayout();
-            this.p_modificationComplete.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nud_choixTailleRetraitMedicament)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_medicamentRechercher)).EndInit();
             this.p_modifierRajouter.ResumeLayout(false);
             this.p_modificationMedicament.ResumeLayout(false);
             this.p_modificationMedicament.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_mSeuilCritique)).EndInit();
             this.p_nouveauMedecament.ResumeLayout(false);
             this.p_nouveauMedecament.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_nSeuilCritique)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_nStock)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -748,13 +856,9 @@
         private System.Windows.Forms.Panel p_nouveauMedecament;
         private System.Windows.Forms.Label l_nouveauMedicament;
         private System.Windows.Forms.Label l_modificationMedicament;
-        private System.Windows.Forms.Panel p_modificationComplete;
-        private System.Windows.Forms.Button b_modificationComplete;
         private System.Windows.Forms.Label l_choixModification;
         private System.Windows.Forms.TextBox tb_nTypeMesure;
         private System.Windows.Forms.TextBox tb_nPrincipeActif;
-        private System.Windows.Forms.TextBox tb_nStock;
-        private System.Windows.Forms.TextBox tb_nSeuilCritique;
         private System.Windows.Forms.TextBox tb_nType;
         private System.Windows.Forms.TextBox tb_nNom;
         private System.Windows.Forms.Label label6;
@@ -763,15 +867,29 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tb_mSeuilCritique;
+        private System.Windows.Forms.Label l_mSeuilCritique;
+        private System.Windows.Forms.Label l_mPrincipeActif;
+        private System.Windows.Forms.Label l_mTypeMesure;
+        private System.Windows.Forms.Label l_mType;
+        private System.Windows.Forms.Label l_mNom;
         private System.Windows.Forms.TextBox tb_mTypeMesure;
         private System.Windows.Forms.TextBox tb_mPrincipeActif;
         private System.Windows.Forms.TextBox tb_mType;
         private System.Windows.Forms.TextBox tb_mNom;
+        private System.Windows.Forms.NumericUpDown nud_mSeuilCritique;
+        private System.Windows.Forms.TextBox tb_mCode;
+        private System.Windows.Forms.Label l_mCode;
+        private System.Windows.Forms.Label l_mStock;
+        private System.Windows.Forms.TextBox tb_mStock;
+        private System.Windows.Forms.TextBox tb_nCode;
+        private System.Windows.Forms.NumericUpDown nud_nSeuilCritique;
+        private System.Windows.Forms.Label l_nCode;
+        private System.Windows.Forms.NumericUpDown nud_nStock;
+        private System.Windows.Forms.ComboBox cob_nLocalisation;
+        private System.Windows.Forms.Label l_mLocalisation;
+        private System.Windows.Forms.ComboBox cob_mLocalisation;
+        private System.Windows.Forms.Label l_nLocalisation;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
