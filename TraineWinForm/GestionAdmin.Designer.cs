@@ -177,7 +177,7 @@
             this.cb_allMedicament.TabIndex = 1;
             this.cb_allMedicament.Text = "Afficher tous les médicament";
             this.cb_allMedicament.UseVisualStyleBackColor = true;
-            this.cb_allMedicament.Click += new System.EventHandler(this.cb_medicamentMasqué_CheckedChanged);
+            this.cb_allMedicament.Click += new System.EventHandler(this.cb_allMedicament_CheckedChanged);
             // 
             // b_rechercheReapprovisionnementMedic
             // 

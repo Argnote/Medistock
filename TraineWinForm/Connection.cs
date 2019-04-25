@@ -43,5 +43,9 @@ namespace TraineWinForm
                 tb_motDePasse.Text = "";
             }
         }
+        private void GestionAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(1);
+        }
     }
 }

@@ -145,7 +145,7 @@ namespace TraineWinForm
             }
         }
 
-        private void cb_medicamentMasqué_CheckedChanged(object sender, EventArgs e)
+        private void cb_allMedicament_CheckedChanged(object sender, EventArgs e)
         {
             rechercherAll();
         }
@@ -193,6 +193,7 @@ namespace TraineWinForm
             {
                 if(attribut == "")
                 {
+                    l_nErreur.Text = "Tous les champs ne sont pas remplis";
                     l_nErreur.Visible = true;
                 }
                 else
@@ -218,7 +219,43 @@ namespace TraineWinForm
         }
         private void b_mMedicament_Click(object sender, EventArgs e)
         {
+            List<string> mMedicament = new List<string>();
+            mMedicament.Add(tb_mCode.Text);
+            mMedicament.Add(tb_mNom.Text);
+            mMedicament.Add(tb_mType.Text);
+            mMedicament.Add(tb_mTypeMesure.Text);
+            mMedicament.Add(tb_mPrincipeActif.Text);
+            mMedicament.Add(tb_mStock.Text);
+            mMedicament.Add(nud_mSeuilCritique.Text);
+            mMedicament.Add(cob_mLocalisation.Text);
 
+            foreach (string attribut in mMedicament)
+            {
+                if (attribut == "")
+                {
+                    l_mErreur.Text = "Tous les champs ne sont pas remplis";
+                    l_mErreur.Visible = true;
+                }
+                else
+                {
+                    l_mErreur.Visible = false;
+                }
+            }
+            if (l_mErreur.Visible == false)
+            {
+                ihm.get_metier().modifierMedicament(mMedicament);
+                tb_mCode.Text = "";
+                tb_mNom.Text = "";
+                tb_mType.Text = "";
+                tb_mTypeMesure.Text = "";
+                tb_mPrincipeActif.Text = "";
+                tb_mStock.Text = "";
+                nud_mSeuilCritique.Value = 0;
+                cob_mLocalisation.Text = null;
+                l_mErreur.Text = "Veuiller coisir un médicament";
+                l_mErreur.Visible = true;
+                rechercherAll();
+            }
         }
         private void b_Deconnection_Click(object sender, EventArgs e)
         {
