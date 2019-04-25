@@ -104,7 +104,7 @@ namespace TraineWinForm
                 for (int i = 1; i < split.Length; i++)
                 {
                     string[] splitlocalisation = split[i].Split(',');
-                    listLocalisation.Add(splitlocalisation[0] + splitlocalisation[1] + " / " + splitlocalisation[2]);  
+                    listLocalisation.Add(splitlocalisation[0] +" "+splitlocalisation[1] + splitlocalisation[2] + " / " + splitlocalisation[3]);  
                 }
                 string[] splitmessage = split[0].Split('*');
                 string[] splitUtilisateur = splitmessage[0].Split(';');
@@ -274,27 +274,20 @@ namespace TraineWinForm
             }
         
         }
-        //methode de test de médicament et patient
-        public void DAO()
+        public void nouveauMedicament(List<string> nouveauMedicament)
         {
-            m_medicament.Add(new Medicament("1", "ibuprophene", "gélulle", "Unité", "prf", "24A", 56, 16));
-            m_medicament.Add(new Medicament("2", "eféralgan", "spray", "Flacon", "tty", "24A", 44, 16));
-            m_medicament.Add(new Medicament("3", "sirop", "liquide", "Centilitre", "prf", "56T", 34, 4));
-            m_medicament.Add(new Medicament("1", "ibuprophene", "spray", "Flacon", "prf", "24A", 56, 16));
-        /* patient pour plus tard
-            List<Medicament> traitement1 = new List<Medicament>();
-            traitement1.Add(m_medicament[0]);
-            traitement1.Add(m_medicament[1]);
-            List<Medicament> traitement2 = new List<Medicament>();
-            traitement2.Add(m_medicament[2]);
-            traitement2.Add(m_medicament[3]);
-            m_patient.Add(new Patient("AX", "Maxime", "65T", "xpty", traitement1));
-            m_patient.Add(new Patient("TY", "Richard", "240b", "dfre", traitement2));
-            m_patient.Add(new Patient("TY", "Luna", "240b", "hyji", traitement1));
-            m_patient.Add(new Patient("OP", "Amina", "87J", "juyy", traitement2));
-        */
+            int idLoc = 1;
+            m_medicament.Add(new Medicament(nouveauMedicament[0], nouveauMedicament[1], nouveauMedicament[2], nouveauMedicament[3], nouveauMedicament[4], nouveauMedicament[7], Int32.Parse(nouveauMedicament[5]), Int32.Parse(nouveauMedicament[6])));
+            foreach(string localisation in listLocalisation)
+            {
+                if(nouveauMedicament[7] == localisation)
+                {
+                    idLoc = localisation[0];
+                }
+            }
+            string maj = "3" + nouveauMedicament[0] +"," + nouveauMedicament[1] + "," + nouveauMedicament[2] + "," + nouveauMedicament[3] + "," + nouveauMedicament[4] + "," + nouveauMedicament[5] + "," + nouveauMedicament[6] + "," + idLoc;
+            Client client = new Client(maj);
         }
-        //fin test
     }
 }
 

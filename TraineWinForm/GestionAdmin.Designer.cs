@@ -47,7 +47,7 @@
             this.l_rechercheNomMedic = new System.Windows.Forms.Label();
             this.tb_rechercheNomMedic = new System.Windows.Forms.TextBox();
             this.l_retraitMedicament = new System.Windows.Forms.Label();
-            this.p_retraitMedicament = new System.Windows.Forms.Panel();
+            this.p_visualisationMedicament = new System.Windows.Forms.Panel();
             this.p_panelDegestionStock = new System.Windows.Forms.Panel();
             this.l_medicamentChoisi = new System.Windows.Forms.Label();
             this.b_gestionMedicament = new System.Windows.Forms.Button();
@@ -80,7 +80,7 @@
             this.tb_mPrincipeActif = new System.Windows.Forms.TextBox();
             this.tb_mType = new System.Windows.Forms.TextBox();
             this.tb_mNom = new System.Windows.Forms.TextBox();
-            this.l_choixModification = new System.Windows.Forms.Label();
+            this.l_mErreur = new System.Windows.Forms.Label();
             this.l_modificationMedicament = new System.Windows.Forms.Label();
             this.p_nouveauMedecament = new System.Windows.Forms.Panel();
             this.b_nMedicament = new System.Windows.Forms.Button();
@@ -101,9 +101,10 @@
             this.tb_nType = new System.Windows.Forms.TextBox();
             this.tb_nNom = new System.Windows.Forms.TextBox();
             this.l_nouveauMedicament = new System.Windows.Forms.Label();
+            this.l_nErreur = new System.Windows.Forms.Label();
             this.p_acceuil.SuspendLayout();
             this.p_rechercheRetraitMedicament.SuspendLayout();
-            this.p_retraitMedicament.SuspendLayout();
+            this.p_visualisationMedicament.SuspendLayout();
             this.p_panelDegestionStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_choixTailleRetraitMedicament)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_medicamentRechercher)).BeginInit();
@@ -304,16 +305,16 @@
             this.l_retraitMedicament.Text = "Recherche d\'un médicament";
             this.l_retraitMedicament.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // p_retraitMedicament
+            // p_visualisationMedicament
             // 
-            this.p_retraitMedicament.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.p_retraitMedicament.Controls.Add(this.p_panelDegestionStock);
-            this.p_retraitMedicament.Controls.Add(this.dgv_medicamentRechercher);
-            this.p_retraitMedicament.Location = new System.Drawing.Point(445, 12);
-            this.p_retraitMedicament.Name = "p_retraitMedicament";
-            this.p_retraitMedicament.Size = new System.Drawing.Size(869, 333);
-            this.p_retraitMedicament.TabIndex = 13;
-            this.p_retraitMedicament.Visible = false;
+            this.p_visualisationMedicament.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.p_visualisationMedicament.Controls.Add(this.p_panelDegestionStock);
+            this.p_visualisationMedicament.Controls.Add(this.dgv_medicamentRechercher);
+            this.p_visualisationMedicament.Location = new System.Drawing.Point(445, 12);
+            this.p_visualisationMedicament.Name = "p_visualisationMedicament";
+            this.p_visualisationMedicament.Size = new System.Drawing.Size(869, 333);
+            this.p_visualisationMedicament.TabIndex = 13;
+            this.p_visualisationMedicament.Visible = false;
             // 
             // p_panelDegestionStock
             // 
@@ -457,7 +458,7 @@
             this.p_modificationMedicament.Controls.Add(this.tb_mPrincipeActif);
             this.p_modificationMedicament.Controls.Add(this.tb_mType);
             this.p_modificationMedicament.Controls.Add(this.tb_mNom);
-            this.p_modificationMedicament.Controls.Add(this.l_choixModification);
+            this.p_modificationMedicament.Controls.Add(this.l_mErreur);
             this.p_modificationMedicament.Controls.Add(this.l_modificationMedicament);
             this.p_modificationMedicament.Location = new System.Drawing.Point(465, 15);
             this.p_modificationMedicament.Name = "p_modificationMedicament";
@@ -473,6 +474,7 @@
             this.b_mMedicament.TabIndex = 25;
             this.b_mMedicament.Text = "Modifier le médicament";
             this.b_mMedicament.UseVisualStyleBackColor = false;
+            this.b_mMedicament.Click += new System.EventHandler(this.b_mMedicament_Click);
             // 
             // l_mLocalisation
             // 
@@ -492,6 +494,7 @@
             // 
             // cob_mLocalisation
             // 
+            this.cob_mLocalisation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cob_mLocalisation.FormattingEnabled = true;
             this.cob_mLocalisation.Location = new System.Drawing.Point(230, 252);
             this.cob_mLocalisation.Name = "cob_mLocalisation";
@@ -597,14 +600,14 @@
             this.tb_mNom.Size = new System.Drawing.Size(156, 20);
             this.tb_mNom.TabIndex = 10;
             // 
-            // l_choixModification
+            // l_mErreur
             // 
-            this.l_choixModification.AutoSize = true;
-            this.l_choixModification.Location = new System.Drawing.Point(99, 39);
-            this.l_choixModification.Name = "l_choixModification";
-            this.l_choixModification.Size = new System.Drawing.Size(223, 13);
-            this.l_choixModification.TabIndex = 9;
-            this.l_choixModification.Text = "Veuiller choisir un médicament pour le modifier";
+            this.l_mErreur.AutoSize = true;
+            this.l_mErreur.Location = new System.Drawing.Point(99, 39);
+            this.l_mErreur.Name = "l_mErreur";
+            this.l_mErreur.Size = new System.Drawing.Size(223, 13);
+            this.l_mErreur.TabIndex = 9;
+            this.l_mErreur.Text = "Veuiller choisir un médicament pour le modifier";
             // 
             // l_modificationMedicament
             // 
@@ -618,6 +621,7 @@
             // p_nouveauMedecament
             // 
             this.p_nouveauMedecament.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.p_nouveauMedecament.Controls.Add(this.l_nErreur);
             this.p_nouveauMedecament.Controls.Add(this.b_nMedicament);
             this.p_nouveauMedecament.Controls.Add(this.l_nLocalisation);
             this.p_nouveauMedecament.Controls.Add(this.cob_nLocalisation);
@@ -650,6 +654,7 @@
             this.b_nMedicament.TabIndex = 24;
             this.b_nMedicament.Text = "Ajouter un nouveau médicament";
             this.b_nMedicament.UseVisualStyleBackColor = false;
+            this.b_nMedicament.Click += new System.EventHandler(this.b_nMedicament_Click);
             // 
             // l_nLocalisation
             // 
@@ -661,8 +666,10 @@
             // 
             // cob_nLocalisation
             // 
+            this.cob_nLocalisation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cob_nLocalisation.FormattingEnabled = true;
             this.cob_nLocalisation.Location = new System.Drawing.Point(234, 249);
+            this.cob_nLocalisation.MaxDropDownItems = 3;
             this.cob_nLocalisation.Name = "cob_nLocalisation";
             this.cob_nLocalisation.Size = new System.Drawing.Size(156, 21);
             this.cob_nLocalisation.TabIndex = 22;
@@ -782,6 +789,16 @@
             this.l_nouveauMedicament.TabIndex = 0;
             this.l_nouveauMedicament.Text = "Insérer un nouveau médicament";
             // 
+            // l_nErreur
+            // 
+            this.l_nErreur.AutoSize = true;
+            this.l_nErreur.Location = new System.Drawing.Point(108, 39);
+            this.l_nErreur.Name = "l_nErreur";
+            this.l_nErreur.Size = new System.Drawing.Size(180, 13);
+            this.l_nErreur.TabIndex = 26;
+            this.l_nErreur.Text = "Tous les champs ne sont pas remplis";
+            this.l_nErreur.Visible = false;
+            // 
             // GestionAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -789,7 +806,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1324, 724);
             this.Controls.Add(this.p_modifierRajouter);
-            this.Controls.Add(this.p_retraitMedicament);
+            this.Controls.Add(this.p_visualisationMedicament);
             this.Controls.Add(this.p_rechercheRetraitMedicament);
             this.Controls.Add(this.p_acceuil);
             this.Name = "GestionAdmin";
@@ -799,7 +816,7 @@
             this.p_acceuil.PerformLayout();
             this.p_rechercheRetraitMedicament.ResumeLayout(false);
             this.p_rechercheRetraitMedicament.PerformLayout();
-            this.p_retraitMedicament.ResumeLayout(false);
+            this.p_visualisationMedicament.ResumeLayout(false);
             this.p_panelDegestionStock.ResumeLayout(false);
             this.p_panelDegestionStock.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_choixTailleRetraitMedicament)).EndInit();
@@ -836,7 +853,7 @@
         private System.Windows.Forms.Label l_rechercheNomMedic;
         private System.Windows.Forms.TextBox tb_rechercheNomMedic;
         private System.Windows.Forms.Label l_retraitMedicament;
-        private System.Windows.Forms.Panel p_retraitMedicament;
+        private System.Windows.Forms.Panel p_visualisationMedicament;
         private System.Windows.Forms.CheckBox cb_allMedicament;
         private System.Windows.Forms.Panel p_panelDegestionStock;
         private System.Windows.Forms.Label l_medicamentChoisi;
@@ -856,7 +873,7 @@
         private System.Windows.Forms.Panel p_nouveauMedecament;
         private System.Windows.Forms.Label l_nouveauMedicament;
         private System.Windows.Forms.Label l_modificationMedicament;
-        private System.Windows.Forms.Label l_choixModification;
+        private System.Windows.Forms.Label l_mErreur;
         private System.Windows.Forms.TextBox tb_nTypeMesure;
         private System.Windows.Forms.TextBox tb_nPrincipeActif;
         private System.Windows.Forms.TextBox tb_nType;
@@ -891,5 +908,6 @@
         private System.Windows.Forms.Label l_nLocalisation;
         private System.Windows.Forms.Button b_mMedicament;
         private System.Windows.Forms.Button b_nMedicament;
+        private System.Windows.Forms.Label l_nErreur;
     }
 }

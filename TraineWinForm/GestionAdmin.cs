@@ -40,7 +40,7 @@ namespace TraineWinForm
                     tb_mStock.Text = ligne.Cells[5].Value.ToString();
                     nud_mSeuilCritique.Value = Int32.Parse(ligne.Cells[6].Value.ToString());
                     cob_mLocalisation.Text = ligne.Cells[7].Value.ToString();
-                    l_choixModification.Visible = false;
+                    l_mErreur.Visible = false;
                 }
                 else
                 {
@@ -55,7 +55,7 @@ namespace TraineWinForm
         {
             //l_localisationMedicament.Text = "Le médicament rechercher se trouve ici : " + ihm.get_metier().get_medicamentRechercher(ihm.get_metier().get_indiceMedicamentChoisi()).get_localisation();
             l_medicamentChoisi.Text = "Veuiller choisir un médicament";
-            p_retraitMedicament.Visible = false;
+            p_visualisationMedicament.Visible = false;
             nud_choixTailleRetraitMedicament.Visible = false;
             b_gestionMedicament.Visible = false;
             tb_rechercheCodeMedic.Text = "";
@@ -98,7 +98,7 @@ namespace TraineWinForm
         {
             p_modifierRajouter.Visible = false;
             rechercherAll();
-            p_retraitMedicament.Visible = true;
+            p_visualisationMedicament.Visible = true;
             b_gestionMedicament.Text = "Retrait médicament";
             p_panelDegestionStock.Visible = true;
             dgv_medicamentRechercher.ClearSelection();
@@ -109,7 +109,7 @@ namespace TraineWinForm
         {
             p_modifierRajouter.Visible = false;
             rechercherAll();
-            p_retraitMedicament.Visible = true;
+            p_visualisationMedicament.Visible = true;
             b_gestionMedicament.Text = "Ajout médicament";
             p_panelDegestionStock.Visible = true;
             dgv_medicamentRechercher.ClearSelection();
@@ -121,7 +121,7 @@ namespace TraineWinForm
             p_modifierRajouter.Visible = false;
             rechercherAll();
             p_panelDegestionStock.Visible = false;
-            p_retraitMedicament.Visible = true;
+            p_visualisationMedicament.Visible = true;
             dgv_medicamentRechercher.ClearSelection();
             dgv_medicamentRechercher.Update();
             ihm.get_metier().set_bontonChoisi(4);
@@ -131,7 +131,7 @@ namespace TraineWinForm
         {
             rechercherAll();
             p_panelDegestionStock.Visible = false;
-            p_retraitMedicament.Visible = true;
+            p_visualisationMedicament.Visible = true;
             p_modifierRajouter.Visible = true;
             dgv_medicamentRechercher.ClearSelection();
             dgv_medicamentRechercher.Update();
@@ -140,8 +140,8 @@ namespace TraineWinForm
             tb_nCode.Text = idMedicament.ToString();
             foreach(string localisation in ihm.get_metier().get_listLocalisation())
             {
-                cob_nLocalisation.Items.Add(localisation);
-                cob_mLocalisation.Items.Add(localisation);
+                cob_nLocalisation.Items.Add(localisation.Substring(2));
+                cob_mLocalisation.Items.Add(localisation.Substring(2));
             }
         }
 
@@ -177,7 +177,49 @@ namespace TraineWinForm
                 rechercheMedicament();
             }
         }
+        private void b_nMedicament_Click(object sender, EventArgs e)
+        {
+            List<string> nMedicament = new List<string>();
+            nMedicament.Add(tb_nCode.Text);
+            nMedicament.Add(tb_nNom.Text);
+            nMedicament.Add(tb_nType.Text);
+            nMedicament.Add(tb_nTypeMesure.Text);
+            nMedicament.Add(tb_nPrincipeActif.Text);
+            nMedicament.Add(nud_nStock.Text);
+            nMedicament.Add(nud_nSeuilCritique.Text);
+            nMedicament.Add(cob_nLocalisation.Text);
 
+            foreach(string attribut in nMedicament)
+            {
+                if(attribut == "")
+                {
+                    l_nErreur.Visible = true;
+                }
+                else
+                {
+                    l_nErreur.Visible = false;
+                }
+            }
+            if(l_nErreur.Visible == false)
+            {
+                ihm.get_metier().nouveauMedicament(nMedicament);
+                int idMedicament = 1 + ihm.get_metier().get_m_medicament().Count;
+                tb_nCode.Text = idMedicament.ToString();
+                tb_nNom.Text = "";
+                tb_nType.Text = "";
+                tb_nTypeMesure.Text = "";
+                tb_nPrincipeActif.Text = "";
+                nud_nStock.Value = 0;
+                nud_nSeuilCritique.Value = 0;
+                cob_nLocalisation.Text = null;
+                rechercherAll();
+            }
+
+        }
+        private void b_mMedicament_Click(object sender, EventArgs e)
+        {
+
+        }
         private void b_Deconnection_Click(object sender, EventArgs e)
         {
 
@@ -189,6 +231,7 @@ namespace TraineWinForm
         {
             Environment.Exit(1);
         }
+
     }
 }
 
