@@ -16,8 +16,9 @@ namespace TraineWinForm
         public Gestion(IHM p_ihm)
         {
             ihm = p_ihm;
-            l_acceuil.Text = ("bonjour " + ihm.get_metier().get_m_utilisateur().get_prenom() + " " + ihm.get_metier().get_m_utilisateur().get_nom());
             InitializeComponent();
+            l_acceuil.Text = ("bonjour " + ihm.get_metier().get_m_utilisateur().get_prenom() + " " + ihm.get_metier().get_m_utilisateur().get_nom());
+            
         }
 
         //A la selection d'une cellule, sélectionne un médicament et demande le retrait de celui-ci
@@ -44,7 +45,6 @@ namespace TraineWinForm
         }
         private void b_gestionMedicament_Click(object sender, EventArgs e)
         {
-            //l_localisationMedicament.Text = "Le médicament rechercher se trouve ici : " + ihm.get_metier().get_medicamentRechercher(ihm.get_metier().get_indiceMedicamentChoisi()).get_localisation();
             l_medicamentChoisi.Text = "Veuiller choisir un médicament";
             p_retraitMedicament.Visible = false;
             nud_choixTailleRetraitMedicament.Visible = false;
@@ -56,11 +56,8 @@ namespace TraineWinForm
             if (ihm.get_metier().get_boutonChoisi() == 1)
             {
                 ihm.get_metier().retraitStockMedicament(ihm.get_metier().get_medicamentRechercher(ihm.get_metier().get_indiceMedicamentChoisi()), nud_choixTailleRetraitMedicament.Value);
+                l_localisationMedicament.Text = "Le médicament rechercher se trouve ici : " + ihm.get_metier().get_medicamentRechercher(ihm.get_metier().get_indiceMedicamentChoisi()).get_localisation();
                 l_localisationMedicament.Visible = true;
-            }
-            else if (ihm.get_metier().get_boutonChoisi() == 2)
-            {
-                ihm.get_metier().ajoutStockMedicament(ihm.get_metier().get_medicamentRechercher(ihm.get_metier().get_indiceMedicamentChoisi()), nud_choixTailleRetraitMedicament.Value);
             }
             nud_choixTailleRetraitMedicament.Value = 0;
         }
@@ -87,7 +84,7 @@ namespace TraineWinForm
         }
         private void b_retraitMedicament_Click(object sender, EventArgs e)
         {
-            rechercheMedicament();
+            rechercherAll();
             p_retraitMedicament.Visible = true;
             b_gestionMedicament.Text = "Retrait médicament";
             p_panelDegestionStock.Visible = true;
@@ -99,7 +96,7 @@ namespace TraineWinForm
         }
         private void b_rechecherMedicamentInfo_Click(object sender, EventArgs e)
         {
-            rechercheMedicament();
+            rechercherAll();
             p_panelDegestionStock.Visible = false;
             p_retraitMedicament.Visible = true;
             dgv_medicamentRechercher.AllowUserToAddRows = false;
@@ -108,5 +105,50 @@ namespace TraineWinForm
             dgv_medicamentRechercher.Update();
             ihm.get_metier().set_bontonChoisi(3);
         }
+
+        private void cb_allMedicament_CheckedChanged(object sender, EventArgs e)
+        {
+            rechercherAll();
+        }
+        private void rechercherAll()
+        {
+            if (cb_allMedicament.Checked == true)
+            {
+                dgv_medicamentRechercher.Rows.Clear();
+                dgv_medicamentRechercher.Update();
+                ihm.get_metier().set_m_medicamentRecherche();
+                for (int i = 0; i < ihm.get_metier().get_compteMedicamentRechercher(); i++)
+                {
+                    dgv_medicamentRechercher.Rows.Add(
+                        ihm.get_metier().get_medicamentRechercher(i).get_code(),
+                        ihm.get_metier().get_medicamentRechercher(i).get_nom(),
+                        ihm.get_metier().get_medicamentRechercher(i).get_type(),
+                        ihm.get_metier().get_medicamentRechercher(i).get_typeMesure(),
+                        ihm.get_metier().get_medicamentRechercher(i).get_principeActif(),
+                        ihm.get_metier().get_medicamentRechercher(i).get_stock(),
+                        ihm.get_metier().get_medicamentRechercher(i).get_seuilCritique(),
+                        ihm.get_metier().get_medicamentRechercher(i).get_localisation()
+                        );
+
+                }
+                dgv_medicamentRechercher.Update();
+            }
+            else
+            {
+                rechercheMedicament();
+            }
+        }
+        private void b_Deconnection_Click(object sender, EventArgs e)
+        {
+
+            Connection connection = new Connection();
+            connection.Show();
+            this.Hide();
+        }
+        private void GestionAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(1);
+        }
+
     }
 }

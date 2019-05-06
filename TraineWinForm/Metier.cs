@@ -280,13 +280,37 @@ namespace TraineWinForm
             m_medicament.Add(new Medicament(nouveauMedicament[0], nouveauMedicament[1], nouveauMedicament[2], nouveauMedicament[3], nouveauMedicament[4], nouveauMedicament[7], Int32.Parse(nouveauMedicament[5]), Int32.Parse(nouveauMedicament[6])));
             foreach(string localisation in listLocalisation)
             {
-                if(nouveauMedicament[7] == localisation)
+                if(nouveauMedicament[7] == localisation.Substring(2))
                 {
-                    idLoc = localisation[0];
+                    idLoc = (int)Char.GetNumericValue(localisation[0]);
                 }
             }
             string maj = "3" + nouveauMedicament[0] +"," + nouveauMedicament[1] + "," + nouveauMedicament[2] + "," + nouveauMedicament[3] + "," + nouveauMedicament[4] + "," + nouveauMedicament[5] + "," + nouveauMedicament[6] + "," + idLoc;
             Client client = new Client(maj);
+        }
+        public void modifierMedicament(List<string> modificationMedicament)
+        {
+            int idLoc = 1;
+            Medicament modification = new Medicament(modificationMedicament[0], modificationMedicament[1], modificationMedicament[2], modificationMedicament[3], modificationMedicament[4], modificationMedicament[7], Int32.Parse(modificationMedicament[5]), Int32.Parse(modificationMedicament[6]));
+            for(int i = 0;i < m_medicament.Count;i++)
+            {
+                if(modification.get_code() == m_medicament[i].get_code())
+                {
+                    if(modification != m_medicament[i])
+                    {
+                        m_medicament[i] = modification;
+                        foreach (string localisation in listLocalisation)
+                        {
+                            if (modificationMedicament[7] == localisation.Substring(2))
+                            {
+                                idLoc = (int)Char.GetNumericValue(localisation[0]);
+                            }
+                        }
+                        string maj = "4" + modificationMedicament[0] + "," + modificationMedicament[1] + "," + modificationMedicament[2] + "," + modificationMedicament[3] + "," + modificationMedicament[4] + "," + modificationMedicament[6] + "," + idLoc;
+                        Client client = new Client(maj);
+                    }
+                }
+            }
         }
     }
 }
