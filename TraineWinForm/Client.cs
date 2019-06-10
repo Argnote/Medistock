@@ -12,8 +12,8 @@ namespace TraineWinForm
         private string message;
         public Client(string p_message)
         {
-            string serveur = "localhost";
-            Int32 port = 22;
+            string serveur = "192.168.121.202";
+            Int32 port = 1302;
             NetworkStream networkStream = null;
             string demande = p_message;
             string reponse = null;

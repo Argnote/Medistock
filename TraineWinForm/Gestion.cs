@@ -12,26 +12,25 @@ namespace TraineWinForm
 {
     public partial class Gestion : Form
     {
-        private IHM ihm;
-        public Gestion(IHM p_ihm)
+        private Metier metier;
+        public Gestion(Metier p_metier)
         {
-            ihm = p_ihm;
+            metier = p_metier;
             InitializeComponent();
-            l_acceuil.Text = ("bonjour " + ihm.get_metier().get_m_utilisateur().get_prenom() + " " + ihm.get_metier().get_m_utilisateur().get_nom());
-            
+            l_acceuil.Text = ("bonjour " + metier.get_m_utilisateur().get_prenom() + " " + metier.get_m_utilisateur().get_nom());           
         }
 
         //A la selection d'une cellule, sélectionne un médicament et demande le retrait de celui-ci
         private void dgv_medicamentRechercher_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int id = e.RowIndex;
-            if (ihm.get_metier().get_boutonChoisi() == 1 || ihm.get_metier().get_boutonChoisi() == 2)
+            if (metier.get_boutonChoisi() == 1 || metier.get_boutonChoisi() == 2)
             {
-                if (id >= 0 && ihm.get_metier().get_boutonChoisi() <= 2)
+                if (id >= 0 && metier.get_boutonChoisi() <= 2)
                 {
                     DataGridViewRow ligne = dgv_medicamentRechercher.Rows[id];
                     l_medicamentChoisi.Text = "Médicament selectionner : " + ligne.Cells[1].Value.ToString() + " en " + ligne.Cells[2].Value.ToString() + ". Combien voulez-vous de " + ligne.Cells[3].Value.ToString() + "?";
-                    ihm.get_metier().set_indiceMedicamentChoisi(id);
+                    metier.set_indiceMedicamentChoisi(id);
                     nud_choixTailleRetraitMedicament.Visible = true;
                     b_gestionMedicament.Visible = true;
                 }
@@ -53,10 +52,10 @@ namespace TraineWinForm
             tb_rechercheNomMedic.Text = "";
             tb_rechercheTypeMedic.Text = "";
             tb_recherchePrincipeActifMedic.Text = "";
-            if (ihm.get_metier().get_boutonChoisi() == 1)
+            if (metier.get_boutonChoisi() == 1)
             {
-                ihm.get_metier().retraitStockMedicament(ihm.get_metier().get_medicamentRechercher(ihm.get_metier().get_indiceMedicamentChoisi()), nud_choixTailleRetraitMedicament.Value);
-                l_localisationMedicament.Text = "Le médicament rechercher se trouve ici : " + ihm.get_metier().get_medicamentRechercher(ihm.get_metier().get_indiceMedicamentChoisi()).get_localisation();
+                metier.retraitStockMedicament(metier.get_medicamentRechercher(metier.get_indiceMedicamentChoisi()), nud_choixTailleRetraitMedicament.Value);
+                l_localisationMedicament.Text = "Le médicament rechercher se trouve ici : " + metier.get_medicamentRechercher(metier.get_indiceMedicamentChoisi()).get_localisation();
                 l_localisationMedicament.Visible = true;
             }
             nud_choixTailleRetraitMedicament.Value = 0;
@@ -66,18 +65,18 @@ namespace TraineWinForm
         {
             dgv_medicamentRechercher.Rows.Clear();
             dgv_medicamentRechercher.Update();
-            ihm.get_metier().filtreMedicament(tb_rechercheCodeMedic.Text, tb_rechercheNomMedic.Text, tb_rechercheTypeMedic.Text, tb_recherchePrincipeActifMedic.Text);
-            for (int i = 0; i < ihm.get_metier().get_compteMedicamentRechercher(); i++)
+            metier.filtreMedicament(tb_rechercheCodeMedic.Text, tb_rechercheNomMedic.Text, tb_rechercheTypeMedic.Text, tb_recherchePrincipeActifMedic.Text);
+            for (int i = 0; i < metier.get_compteMedicamentRechercher(); i++)
             {
                 dgv_medicamentRechercher.Rows.Add(
-                    ihm.get_metier().get_medicamentRechercher(i).get_code(),
-                    ihm.get_metier().get_medicamentRechercher(i).get_nom(),
-                    ihm.get_metier().get_medicamentRechercher(i).get_type(),
-                    ihm.get_metier().get_medicamentRechercher(i).get_typeMesure(),
-                    ihm.get_metier().get_medicamentRechercher(i).get_principeActif(),
-                    ihm.get_metier().get_medicamentRechercher(i).get_stock(),
-                    ihm.get_metier().get_medicamentRechercher(i).get_seuilCritique(),
-                    ihm.get_metier().get_medicamentRechercher(i).get_localisation()
+                    metier.get_medicamentRechercher(i).get_code(),
+                    metier.get_medicamentRechercher(i).get_nom(),
+                    metier.get_medicamentRechercher(i).get_type(),
+                    metier.get_medicamentRechercher(i).get_typeMesure(),
+                    metier.get_medicamentRechercher(i).get_principeActif(),
+                    metier.get_medicamentRechercher(i).get_stock(),
+                    metier.get_medicamentRechercher(i).get_seuilCritique(),
+                    metier.get_medicamentRechercher(i).get_localisation()
                     );
             }
             dgv_medicamentRechercher.Update();
@@ -92,7 +91,7 @@ namespace TraineWinForm
             dgv_medicamentRechercher.AllowUserToDeleteRows = false;
             dgv_medicamentRechercher.ReadOnly = true;
             dgv_medicamentRechercher.Update();
-            ihm.get_metier().set_bontonChoisi(1);
+            metier.set_bontonChoisi(1);
         }
         private void b_rechecherMedicamentInfo_Click(object sender, EventArgs e)
         {
@@ -103,7 +102,7 @@ namespace TraineWinForm
             dgv_medicamentRechercher.AllowUserToDeleteRows = false;
             dgv_medicamentRechercher.ReadOnly = true;
             dgv_medicamentRechercher.Update();
-            ihm.get_metier().set_bontonChoisi(3);
+            metier.set_bontonChoisi(3);
         }
 
         private void cb_allMedicament_CheckedChanged(object sender, EventArgs e)
@@ -116,18 +115,18 @@ namespace TraineWinForm
             {
                 dgv_medicamentRechercher.Rows.Clear();
                 dgv_medicamentRechercher.Update();
-                ihm.get_metier().set_m_medicamentRecherche();
-                for (int i = 0; i < ihm.get_metier().get_compteMedicamentRechercher(); i++)
+                metier.set_m_medicamentRecherche();
+                for (int i = 0; i < metier.get_compteMedicamentRechercher(); i++)
                 {
                     dgv_medicamentRechercher.Rows.Add(
-                        ihm.get_metier().get_medicamentRechercher(i).get_code(),
-                        ihm.get_metier().get_medicamentRechercher(i).get_nom(),
-                        ihm.get_metier().get_medicamentRechercher(i).get_type(),
-                        ihm.get_metier().get_medicamentRechercher(i).get_typeMesure(),
-                        ihm.get_metier().get_medicamentRechercher(i).get_principeActif(),
-                        ihm.get_metier().get_medicamentRechercher(i).get_stock(),
-                        ihm.get_metier().get_medicamentRechercher(i).get_seuilCritique(),
-                        ihm.get_metier().get_medicamentRechercher(i).get_localisation()
+                        metier.get_medicamentRechercher(i).get_code(),
+                        metier.get_medicamentRechercher(i).get_nom(),
+                        metier.get_medicamentRechercher(i).get_type(),
+                        metier.get_medicamentRechercher(i).get_typeMesure(),
+                        metier.get_medicamentRechercher(i).get_principeActif(),
+                        metier.get_medicamentRechercher(i).get_stock(),
+                        metier.get_medicamentRechercher(i).get_seuilCritique(),
+                        metier.get_medicamentRechercher(i).get_localisation()
                         );
 
                 }

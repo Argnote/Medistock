@@ -12,25 +12,25 @@ namespace TraineWinForm
 {
     public partial class Connection : Form
     {
-        private IHM ihm;
+        private Metier metier;
         public Connection()
         {
             InitializeComponent();
-            ihm = new IHM();
+            metier = new Metier();
         }
         //Methode de connection
         private void b_connection_Click(object sender, EventArgs e)
         {
-            if (ihm.get_metier().identification(tb_identifiant.Text, tb_motDePasse.Text))
+            if (metier.identification(tb_identifiant.Text, tb_motDePasse.Text))
             {
-                if (ihm.get_metier().get_m_utilisateur().get_permission() == 5)
+                if (metier.get_m_utilisateur().get_permission() == 5)
                 {
-                    GestionAdmin gestion = new GestionAdmin(ihm);
+                    GestionAdmin gestion = new GestionAdmin(metier);
                     gestion.Show();
                 }
                 else
                 {
-                    Gestion gestion = new Gestion(ihm);
+                    Gestion gestion = new Gestion(metier);
                     gestion.Show();
                 }
                 this.Hide();
