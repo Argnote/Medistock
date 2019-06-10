@@ -18,6 +18,11 @@ namespace TraineWinForm
             ihm = p_ihm;
             InitializeComponent();
             l_acceuil.Text = ("bonjour " + ihm.get_metier().get_m_utilisateur().get_prenom() + " " + ihm.get_metier().get_m_utilisateur().get_nom());
+            foreach (string localisation in ihm.get_metier().get_listLocalisation())
+            {
+                cob_nLocalisation.Items.Add(localisation.Substring(2));
+                cob_mLocalisation.Items.Add(localisation.Substring(2));
+            }
         }
         //A la selection d'une cellule, sélectionne un médicament et demande le retrait de celui-ci
         private void dgv_medicamentRechercher_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -138,11 +143,6 @@ namespace TraineWinForm
             ihm.get_metier().set_bontonChoisi(3);
             int idMedicament = 1 + ihm.get_metier().get_m_medicament().Count;
             tb_nCode.Text = idMedicament.ToString();
-            foreach(string localisation in ihm.get_metier().get_listLocalisation())
-            {
-                cob_nLocalisation.Items.Add(localisation.Substring(2));
-                cob_mLocalisation.Items.Add(localisation.Substring(2));
-            }
         }
 
         private void cb_allMedicament_CheckedChanged(object sender, EventArgs e)
